@@ -50,14 +50,16 @@
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts Preconnect (Ultra Fast Loading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         @media (min-width: 1024px) { html { font-size: 14px; } }
         @media (min-width: 1536px) { html { font-size: 15px; } }
 
-        /* Core Smoothness Optimization */
+        /* Core Smoothness Optimization Engine */
         body { 
             font-family: 'Inter', sans-serif;
             -webkit-user-select: none; -ms-user-select: none; user-select: none;
@@ -72,13 +74,14 @@
         .smooth-card {
             background-color: #ffffff;
             border: 1px solid #e4e4e7;
-            /* Cubic bezier for butter smooth hover physics */
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                        box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                        border-color 0.4s ease, background-color 0.4s ease;
-            will-change: transform, box-shadow;
-            transform: translate3d(0, 0, 0); /* Force GPU */
+            /* Ultra optimized physics for hover */
+            transition: transform 0.35s cubic-bezier(0.21, 1.02, 0.73, 1), 
+                        box-shadow 0.35s cubic-bezier(0.21, 1.02, 0.73, 1),
+                        border-color 0.3s ease, background-color 0.3s ease;
+            will-change: transform;
+            transform: translateZ(0); /* Force GPU to prevent reflows */
             backface-visibility: hidden;
+            perspective: 1000px;
         }
         .dark .smooth-card {
             background-color: #18181b;
@@ -100,21 +103,21 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(228, 228, 231, 0.8);
-            transform: translateZ(0); /* Hardware accelerate fixed nav */
+            transform: translateZ(0);
+            will-change: background-color;
         }
         .dark .nav-glass {
             background: rgba(9, 9, 11, 0.85); 
             border-bottom: 1px solid rgba(39, 39, 42, 0.8);
         }
 
-        /* 60FPS Page Transition Logic */
+        /* 60FPS Page Transition Logic (Optimized for Blink & Gecko engines) */
         .page-section {
             display: none; 
             opacity: 0; 
-            transform: scale(0.98) translate3d(0, 10px, 0);
-            transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
-                        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: opacity, transform;
+            transform: scale(0.985) translate3d(0, 10px, 0);
+            transition: opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                        transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .page-section.active { 
             display: block; 
@@ -138,7 +141,7 @@
         /* Image Zoom GPU Fix */
         .img-zoom-container { overflow: hidden; transform: translateZ(0); }
         .img-zoom-container img { 
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+            transition: transform 0.5s cubic-bezier(0.21, 1.02, 0.73, 1); 
             will-change: transform;
         }
         .img-zoom-container:hover img { transform: scale3d(1.05, 1.05, 1); }
@@ -160,7 +163,7 @@
             <div class="flex justify-between items-center h-16 md:h-16 lg:h-20">
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer select-none group" onclick="switchPage('home')">
                     <div class="overflow-hidden rounded-xl shadow-sm border border-gray-200 dark:border-premium-800 bg-white dark:bg-premium-900 p-0.5 transform transition-transform group-hover:scale-105 duration-300">
-                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=18181b&color=fff'" class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-lg" alt="Logo" loading="lazy">
+                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=18181b&color=fff'" class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-lg" alt="Logo" fetchpriority="high">
                     </div>
                     <div>
                         <h1 class="font-black text-lg md:text-xl tracking-tight leading-none text-gray-900 dark:text-white">.Design</h1>
@@ -270,9 +273,9 @@
                     <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
                         <div class="relative w-[280px] sm:w-full max-w-md lg:max-w-lg aspect-square mx-auto lg:mx-0 bg-white dark:bg-premium-900 border border-gray-200 dark:border-premium-800 rounded-[2rem] p-3 shadow-sm transform transition-transform duration-500 hover:scale-[1.02] will-change-transform">
                             <div class="w-full h-full rounded-[1.5rem] overflow-hidden bg-gray-100 dark:bg-black">
-                                <video id="hero-bg-video" autoplay loop muted playsinline class="w-full h-full object-cover">
+                                <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover">
                                     <source src="0001.mp4" type="video/mp4">
-                                    <img src="image_612151.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?q=80&w=1000'" class="w-full h-full object-cover" alt="Hero Design" loading="lazy">
+                                    <img src="image_612151.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?q=80&w=1000'" class="w-full h-full object-cover" alt="Hero Design">
                                 </video>
                             </div>
                             <!-- Static Badge -->
@@ -618,6 +621,11 @@
             }
         });
 
+        // DOM Element Caching for Ultra Fast Performance
+        let allNavBtns = [];
+        let allMobileNavBtns = [];
+        let allPageSections = {};
+
         // 60FPS Smooth Counters
         function animateCounters() {
             const counters = document.querySelectorAll('.count-up');
@@ -654,14 +662,14 @@
             }
         }
 
-        // Butter Smooth Page Switching Engine (requestAnimationFrame)
+        // Butter Smooth Page Switching Engine (Optimized DOM calls)
         function switchPage(pageId) {
             const currentActive = document.querySelector('.page-section.active');
-            const targetSection = document.getElementById(pageId);
+            const targetSection = allPageSections[pageId] || document.getElementById(pageId);
             if (currentActive === targetSection) return;
 
-            // Update Nav UI
-            document.querySelectorAll('.nav-btn').forEach(btn => {
+            // Update Nav UI via Cached Nodes (No layout thrashing)
+            allNavBtns.forEach(btn => {
                 const isTarget = btn.dataset.target === pageId;
                 btn.classList.toggle('text-gray-900', isTarget);
                 btn.classList.toggle('dark:text-white', isTarget);
@@ -673,7 +681,7 @@
                 btn.classList.toggle('dark:text-gray-400', !isTarget);
             });
             
-            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+            allMobileNavBtns.forEach(btn => {
                 const isTarget = btn.dataset.target === pageId;
                 btn.classList.toggle('bg-gray-100', isTarget);
                 btn.classList.toggle('dark:bg-premium-900', isTarget);
@@ -700,7 +708,7 @@
                             if (pageId === 'home') animateCounters();
                         });
                     });
-                }, 400); // 400ms matches the CSS cubic-bezier transition time
+                }, 350); // Matches the new ultra fast CSS transition time
             } else {
                 targetSection.classList.add('active');
                 window.requestAnimationFrame(() => {
@@ -720,7 +728,7 @@
                 const subjectField = document.getElementById('subject-field');
                 subjectField.value = "Order: " + packageName + " Package"; 
                 subjectField.focus();
-            }, 450); // wait slightly longer than page transition
+            }, 400); 
         }
 
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
@@ -776,8 +784,9 @@
             }, 300); 
         }
 
-        // Initialize App Fast
+        // Initialize App Ultra Fast
         document.addEventListener('DOMContentLoaded', () => {
+            // Check Theme
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
             } else { 
@@ -786,6 +795,14 @@
 
             lucide.createIcons();
 
+            // Cache Elements for zero DOM thrashing on click
+            allNavBtns = Array.from(document.querySelectorAll('.nav-btn'));
+            allMobileNavBtns = Array.from(document.querySelectorAll('.mobile-nav-btn'));
+            document.querySelectorAll('.page-section').forEach(sec => {
+                allPageSections[sec.id] = sec;
+            });
+
+            // Load Video if exists
             const vid = document.getElementById('hero-bg-video');
             if(vid) vid.load();
 
