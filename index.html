@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags -->
+    <title>P.Design | Premium Graphics Store</title>
+    <meta name="description" content="P.Design is a premium graphic design store offering stunning visuals, logo design, social media posts, and branding materials that help your business grow.">
+    <meta name="keywords" content="graphic design, logo design, social media design, branding, P.Design, Piyumal">
+    <meta name="author" content="Pasan Piyumal">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="P.Design | Graphics Store">
+    <meta property="og:description" content="High-quality, fast-delivery graphic design services to lift your brand above the noise.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=1200&q=80">
+    <meta property="og:url" content="https://pdesign.store">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="image_612480.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        @media (min-width: 1024px) { html { font-size: 14px; } }
+        @media (min-width: 1536px) { html { font-size: 15px; } }
+
+        body { 
+            font-family: 'Inter', sans-serif;
+            -webkit-user-select: none; -ms-user-select: none; user-select: none;
+            overflow-x: hidden; scroll-behavior: smooth;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+        input, textarea, select { -webkit-user-select: text; user-select: text; }
+
+        /* Minimal UI Components */
+        .ui-card {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .dark .ui-card {
+            background-color: #0a0a0a;
+            border: 1px solid #1f2937;
+        }
+        .ui-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        .dark .ui-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            border-color: #374151;
+        }
+
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .dark .nav-glass {
+            background: rgba(0, 0, 0, 0.85); 
+            border-bottom: 1px solid #1f2937;
+        }
+
+        /* Smooth Page Transition Only */
+        .page-section {
+            display: none; 
+            opacity: 0; 
+            transition: opacity 0.3s ease-in-out;
+        }
+        .page-section.active { 
+            display: block; 
+            opacity: 1; 
+        }
+        .page-section.active.is-flex { display: flex; }
+
+        /* Scrollbar styles */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: #374151; } 
+        ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+        .dark ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+        .img-zoom-container img { transition: transform 0.4s ease; }
+        .img-zoom-container:hover img { transform: scale(1.05); }
+
+        /* Checkmark Animation for Modal Only */
+        .checkmark-circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: #22c55e; fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
+        .checkmark { width: 56px; height: 56px; border-radius: 50%; display: block; stroke-width: 2; stroke: #fff; stroke-miterlimit: 10; margin: 10% auto; box-shadow: inset 0px 0px 0px #22c55e; animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; }
+        .checkmark-check { transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }
+        @keyframes stroke { 100% { stroke-dashoffset: 0; } }
+        @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
+        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px #22c55e; } }
+    </style>
+</head>
+<body oncontextmenu="return false" class="bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen flex flex-col relative z-0 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav id="main-nav" class="fixed w-full z-50 nav-glass transition-colors duration-300">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex justify-between items-center h-16 md:h-16 lg:h-20">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer select-none group" onclick="switchPage('home')">
+                    <div class="overflow-hidden rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 bg-white dark:bg-black p-0.5">
+                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=111&color=fff'" class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-lg" alt="Logo" loading="lazy">
+                    </div>
+                    <div>
+                        <h1 class="font-black text-lg md:text-xl tracking-tight leading-none text-gray-900 dark:text-white">.Design</h1>
+                        <p class="text-[9px] md:text-[11px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Graphics Store</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-1 items-center bg-gray-100/50 dark:bg-gray-900/50 px-2 py-1.5 rounded-full border border-gray-200 dark:border-gray-800">
+                    <button onclick="switchPage('home')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 text-gray-900 dark:text-white bg-white dark:bg-gray-800 shadow-sm" data-target="home">Home</button>
+                    <button onclick="switchPage('services')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200" data-target="services">Services</button>
+                    <button onclick="switchPage('store')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200" data-target="store">Store</button>
+                    <button onclick="switchPage('portfolio')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200" data-target="portfolio">Portfolio</button>
+                    <button onclick="switchPage('contact')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200" data-target="contact">Contact</button>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-3">
+                    <button onclick="toggleTheme()" class="p-2.5 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    </button>
+                    <button onclick="switchPage('contact')" class="bg-gray-900 dark:bg-white text-white dark:text-black px-6 py-2.5 rounded-full text-sm font-bold transition-transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i> Order Now
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-3">
+                    <button onclick="toggleTheme()" class="p-2 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-colors" aria-label="Toggle Theme">
+                        <i data-lucide="moon" class="w-5 h-5 text-gray-700 block dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 text-gray-300 hidden dark:block"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="text-gray-700 dark:text-gray-200 p-2 bg-gray-100 dark:bg-gray-900 rounded-full border border-gray-200 dark:border-gray-800 transition-colors" aria-label="Menu">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black absolute w-full left-0 shadow-xl z-[60]">
+            <div class="px-4 pt-4 pb-6 space-y-1">
+                <button onclick="switchPage('home'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white" data-target="home">Home</button>
+                <button onclick="switchPage('services'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="services">Services</button>
+                <button onclick="switchPage('store'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="store">Store</button>
+                <button onclick="switchPage('portfolio'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="portfolio">Portfolio</button>
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="contact">Contact</button>
+                <div class="h-px bg-gray-200 dark:bg-gray-800 my-3"></div>
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="block w-full text-center px-5 py-3.5 rounded-xl font-bold text-white dark:text-black bg-gray-900 dark:bg-white">Order Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-20 md:pt-24 relative z-10">
+        
+        <!-- PAGE 1: HOME -->
+        <section id="home" class="page-section is-flex active min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] items-center py-6 md:py-10">
+            <div class="container mx-auto px-4 md:px-8 relative z-10">
+                <div class="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-20">
+                    <div class="w-full lg:w-1/2 text-center lg:text-left space-y-6 mt-4 lg:mt-0">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 text-[10px] md:text-xs font-bold tracking-wider uppercase">
+                            <span class="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
+                              <span class="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-green-500"></span>
+                            </span>
+                            Available for Work
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+                            Premium Graphics <br>
+                            <span class="text-gray-500 dark:text-gray-400">Design Store</span>
+                        </h1>
+                        <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                            Welcome to my digital store. I create stunning visuals, logos, and branding materials that help your business grow. Clean, minimal, and fast delivery.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <button onclick="switchPage('store')" class="w-full sm:w-auto px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full font-bold transition-transform hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2">
+                                Browse Store
+                            </button>
+                            <button onclick="switchPage('portfolio')" class="w-full sm:w-auto px-8 py-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-black hover:bg-gray-50 dark:hover:bg-gray-900 text-gray-900 dark:text-white rounded-full font-bold transition-transform hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2">
+                                View Portfolio
+                            </button>
+                        </div>
+
+                        <div class="pt-8 mt-8 border-t border-gray-200 dark:border-gray-800 flex justify-between md:justify-start items-center w-full gap-6 sm:gap-12">
+                            <div class="text-left">
+                                <h3 class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
+                                    <span class="count-up" data-target="50">0</span>+
+                                </h3>
+                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mt-1">Projects</p>
+                            </div>
+                            <div class="text-left">
+                                <h3 class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
+                                    <span class="count-up" data-target="100">0</span>%
+                                </h3>
+                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mt-1">Satisfaction</p>
+                            </div>
+                            <div class="text-left">
+                                <h3 class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
+                                    <span class="count-up" data-target="24">0</span>/7
+                                </h3>
+                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mt-1">Support</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                        <div class="relative w-[280px] sm:w-full max-w-md lg:max-w-lg aspect-square mx-auto lg:mx-0 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-3 shadow-sm">
+                            <div class="w-full h-full rounded-[1.5rem] overflow-hidden bg-gray-100 dark:bg-gray-900">
+                                <video id="hero-bg-video" autoplay loop muted playsinline class="w-full h-full object-cover">
+                                    <source src="0001.mp4" type="video/mp4">
+                                    <img src="image_612151.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?q=80&w=1000'" class="w-full h-full object-cover" alt="Hero Design" loading="lazy">
+                                </video>
+                            </div>
+                            <!-- Static Badge -->
+                            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 p-4 rounded-2xl shadow-lg flex items-center gap-3">
+                                <div class="bg-green-100 dark:bg-green-900/30 p-2 rounded-full text-green-600 dark:text-green-400">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 md:w-6 md:h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-500 dark:text-gray-400 uppercase font-bold tracking-wider">Status</p>
+                                    <p class="text-sm md:text-base font-black text-gray-900 dark:text-white whitespace-nowrap">Accepting Orders</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: SERVICES -->
+        <section id="services" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-black tracking-widest text-gray-500 dark:text-gray-400 uppercase mb-3">My Expertise</h2>
+                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6">Professional Design Services</h3>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">I provide a full range of creative services to lift your brand above the noise.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                    <!-- Logo Design -->
+                    <div class="ui-card p-8 rounded-[2rem]">
+                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-900 dark:text-white mb-6">
+                            <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Logo Design</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Unique, memorable logos that define your brand identity. Minimalist, modern, or complex styles.</p>
+                        <button onclick="switchPage('contact')" class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="ui-card p-8 rounded-[2rem]">
+                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-900 dark:text-white mb-6">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Social Media</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Eye-catching posts and banners for Facebook, Instagram, and LinkedIn to boost engagement.</p>
+                        <button onclick="switchPage('contact')" class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    </div>
+
+                    <!-- Photo Retouching -->
+                    <div class="ui-card p-8 rounded-[2rem]">
+                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-900 dark:text-white mb-6">
+                            <i data-lucide="image" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Retouching</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Professional editing, background removal, and color correction to make your photos pop.</p>
+                        <button onclick="switchPage('contact')" class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    </div>
+
+                    <!-- Web Development -->
+                    <div class="ui-card p-8 rounded-[2rem]">
+                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-900 dark:text-white mb-6">
+                            <i data-lucide="monitor" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Web Dev</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Custom website development, landing pages, and web applications built with modern technologies.</p>
+                        <button onclick="switchPage('contact')" class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: STORE / PRICING -->
+        <section id="store" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4">Packages</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">Choose a package that fits your budget. Transparent pricing, no hidden fees.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-center">
+                    
+                    <!-- Starter -->
+                    <div class="ui-card rounded-[2rem] p-8 flex flex-col h-full">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Starter</h3>
+                        <div class="my-6 flex items-baseline">
+                            <span class="text-3xl font-black text-gray-900 dark:text-white">Rs. 1,500</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Perfect for small tasks and simple edits.</p>
+                        <ul class="space-y-4 mb-8 flex-grow text-sm">
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 1 Design Concept</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 2 Revisions</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> JPG & PNG Files</li>
+                        </ul>
+                        <button onclick="selectPackage('Starter')" class="w-full py-4 rounded-xl border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Select Plan</button>
+                    </div>
+
+                    <!-- Professional -->
+                    <div class="ui-card rounded-[2rem] p-8 flex flex-col h-full border-gray-900 dark:border-white relative transform md:-translate-y-2">
+                        <div class="absolute -top-3 right-8 bg-gray-900 dark:bg-white text-white dark:text-black text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Popular</div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Professional</h3>
+                        <div class="my-6 flex items-baseline">
+                            <span class="text-4xl font-black text-gray-900 dark:text-white">Rs. 3,500</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Best for logos and social media branding.</p>
+                        <ul class="space-y-4 mb-8 flex-grow text-sm">
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 3 Design Concepts</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Unlimited Revisions</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> High Res JPG, PNG</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Source File (PSD/AI)</li>
+                        </ul>
+                        <button onclick="selectPackage('Professional')" class="w-full py-4 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-black font-bold hover:opacity-90 transition-opacity">Select Plan</button>
+                    </div>
+
+                    <!-- Business -->
+                    <div class="ui-card rounded-[2rem] p-8 flex flex-col h-full">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Business</h3>
+                        <div class="my-6 flex items-baseline">
+                            <span class="text-3xl font-black text-gray-900 dark:text-white">Rs. 8,000</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Complete branding solution.</p>
+                        <ul class="space-y-4 mb-8 flex-grow text-sm">
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Logo + Brand Book</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 5 Social Media Posts</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Business Card</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> VIP Support</li>
+                        </ul>
+                        <button onclick="selectPackage('Business')" class="w-full py-4 rounded-xl border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Select Plan</button>
+                    </div>
+
+                    <!-- Web Dev -->
+                    <div class="ui-card rounded-[2rem] p-8 flex flex-col h-full">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Web Dev</h3>
+                        <div class="my-6 flex items-baseline">
+                            <span class="text-3xl font-black text-gray-900 dark:text-white">Rs. 20k</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Complete modern website setup.</p>
+                        <ul class="space-y-4 mb-8 flex-grow text-sm">
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 5 Pages Responsive</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Contact Form & SEO</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Free Hosting Setup</li>
+                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 1 Month Support</li>
+                        </ul>
+                        <button onclick="selectPackage('Web Developing')" class="w-full py-4 rounded-xl border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Select Plan</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: PORTFOLIO -->
+        <section id="portfolio" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4">Featured Works</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">A glimpse into my creative journey. Clean and simple.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    
+                    <div class="ui-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
+                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-gray-900">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="Neon Tech Logo" loading="lazy" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                <span class="text-gray-300 text-xs font-bold uppercase tracking-widest mb-2">Branding</span>
+                                <h3 class="text-white text-2xl font-bold">Neon Tech Logo</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
+                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-gray-900">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="Instagram Grid" loading="lazy" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                <span class="text-gray-300 text-xs font-bold uppercase tracking-widest mb-2">Social Media</span>
+                                <h3 class="text-white text-2xl font-bold">Instagram Grid</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
+                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-gray-900">
+                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="3D Social Logo" loading="lazy" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                <span class="text-gray-300 text-xs font-bold uppercase tracking-widest mb-2">3D Design</span>
+                                <h3 class="text-white text-2xl font-bold">3D App Icon</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: CONTACT -->
+        <section id="contact" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto items-start">
+                    
+                    <div class="lg:w-5/12 space-y-8 order-2 lg:order-1 w-full">
+                        <div>
+                            <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-4">Let's Talk</h2>
+                            <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">Have a project in mind? Fill out the form to order directly via WhatsApp.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <a id="btn-call" href="tel:0704227925" class="flex items-center gap-6 p-6 rounded-[1.5rem] ui-card group">
+                                <div class="w-14 h-14 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-900 dark:text-white shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold mb-1">Call Me</p>
+                                    <p class="text-xl font-black text-gray-900 dark:text-white">070 422 7925</p>
+                                </div>
+                            </a>
+
+                            <a id="btn-email" href="mailto:piyumalbherath@gmail.com" class="flex items-center gap-6 p-6 rounded-[1.5rem] ui-card group">
+                                <div class="w-14 h-14 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-900 dark:text-white shrink-0">
+                                    <i data-lucide="mail" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold mb-1">Email</p>
+                                    <p class="text-xl font-black text-gray-900 dark:text-white break-all">piyumalbherath@gmail.com</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-7/12 w-full order-1 lg:order-2">
+                        <form onsubmit="sendToWhatsApp(event)" class="ui-card p-8 md:p-10 rounded-[2rem]">
+                            <div class="mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="shopping-bag" class="text-gray-900 dark:text-white"></i> Place Your Order
+                                </h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">This form generates a professional invoice to our WhatsApp.</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
+                                    <input type="text" id="contact-name" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-[#111111] border border-gray-200 dark:border-gray-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
+                                    <input type="tel" id="contact-phone" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-[#111111] border border-gray-200 dark:border-gray-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="07x xxx xxxx">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Package / Subject</label>
+                                <input type="text" id="subject-field" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-[#111111] border border-gray-200 dark:border-gray-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="E.g., Starter Package">
+                            </div>
+                            <div class="mb-8">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Message Details</label>
+                                <textarea id="contact-message" rows="4" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-[#111111] border border-gray-200 dark:border-gray-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="Tell me about your project needs..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-gray-900 dark:bg-white text-white dark:text-black rounded-xl font-bold text-lg transition-transform hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i> Generate Invoice & Send
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer" class="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 py-8 mt-auto relative z-10">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-left items-start">
+                
+                <div class="flex flex-col items-start"> 
+                    <div class="flex items-center gap-3 mb-3 cursor-pointer" onclick="switchPage('home')">
+                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=111&color=fff'" class="w-10 h-10 object-cover bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800" alt="Logo" loading="lazy">
+                        <h2 class="text-xl font-black text-gray-900 dark:text-white tracking-tight">.Design</h2>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mb-4">Graphics Store</p>
+                    <div class="flex gap-3">
+                        <a href="mailto:piyumalbherath@gmail.com" class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                        <a href="https://instagram.com/piyumalbherath" target="_blank" class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-4">Useful Links</h3>
+                    <ul class="space-y-3 font-semibold text-gray-500 dark:text-gray-400 text-sm">
+                        <li><button onclick="switchPage('home')" class="hover:text-gray-900 dark:hover:text-white transition-colors">Home</button></li>
+                        <li><button onclick="switchPage('store')" class="hover:text-gray-900 dark:hover:text-white transition-colors">View Store</button></li>
+                        <li><a href="https://policies.google.com/privacy" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-4">Explore</h3>
+                    <ul class="space-y-3 font-semibold text-gray-500 dark:text-gray-400 text-sm">
+                        <li><button onclick="switchPage('services')" class="hover:text-gray-900 dark:hover:text-white transition-colors">Services</button></li>
+                        <li><button onclick="switchPage('portfolio')" class="hover:text-gray-900 dark:hover:text-white transition-colors">Portfolio</button></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-start"> 
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-4">Contact</h3>
+                    <ul class="space-y-3 font-semibold text-gray-500 dark:text-gray-400 text-sm">
+                        <li><a href="tel:0704227925" class="hover:text-gray-900 dark:hover:text-white transition-colors">070 422 7925</a></li>
+                        <li><a href="mailto:piyumalbherath@gmail.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">piyumalbherath@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-gray-500 dark:text-gray-400">
+                <div>Copyright &copy; 2026 All Rights Reserved</div>
+                <div class="flex gap-4">
+                    <a href="https://policies.google.com/terms" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                    <span>|</span>
+                    <a href="https://policies.google.com/privacy" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-gray-900/50 dark:bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+        <div class="ui-card p-8 rounded-[2rem] text-center w-[90%] max-w-sm">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-black text-gray-900 dark:text-white mb-2">Order Processed!</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Your professional invoice has been generated and sent via WhatsApp.</p>
+            <button onclick="closeSuccessModal()" class="w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-xl font-bold transition-transform active:scale-95">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN DYNAMIC ENGINE SCRIPT -->
+    <script>
+        // Security logic
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if(e.key === 'F12' || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))) {
+                e.preventDefault(); return false;
+            }
+        });
+
+        // Simplified Counter Logic
+        function animateCounters() {
+            const counters = document.querySelectorAll('.count-up');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                if (parseInt(counter.innerText) === target) return; 
+                
+                counter.innerText = '0';
+                const duration = 1500;
+                let startTimestamp = null;
+                
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const current = Math.floor(progress * target);
+                    counter.innerText = current;
+                    
+                    if (progress < 1) window.requestAnimationFrame(step);
+                    else counter.innerText = target;
+                };
+                window.requestAnimationFrame(step); 
+            });
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) { 
+                html.classList.remove('dark'); localStorage.theme = 'light'; 
+            } else { 
+                html.classList.add('dark'); localStorage.theme = 'dark'; 
+            }
+        }
+
+        // Smooth Page Switching without heavy translate3d delays
+        function switchPage(pageId) {
+            const currentActive = document.querySelector('.page-section.active');
+            const targetSection = document.getElementById(pageId);
+            if (currentActive === targetSection) return;
+
+            // Nav UI Updates
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                const isTarget = btn.dataset.target === pageId;
+                btn.classList.toggle('text-gray-900', isTarget);
+                btn.classList.toggle('dark:text-white', isTarget);
+                btn.classList.toggle('bg-white', isTarget);
+                btn.classList.toggle('dark:bg-gray-800', isTarget);
+                btn.classList.toggle('shadow-sm', isTarget);
+                
+                btn.classList.toggle('text-gray-600', !isTarget);
+                btn.classList.toggle('dark:text-gray-400', !isTarget);
+            });
+            
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                const isTarget = btn.dataset.target === pageId;
+                btn.classList.toggle('bg-gray-100', isTarget);
+                btn.classList.toggle('dark:bg-gray-900', isTarget);
+                btn.classList.toggle('text-gray-900', isTarget);
+                btn.classList.toggle('dark:text-white', isTarget);
+                
+                btn.classList.toggle('text-gray-600', !isTarget);
+                btn.classList.toggle('dark:text-gray-400', !isTarget);
+            });
+
+            // Fast Opacity Switch
+            if (currentActive) {
+                currentActive.style.opacity = '0'; 
+                setTimeout(() => { 
+                    currentActive.classList.remove('active'); 
+                    targetSection.classList.add('active');
+                    
+                    // Allow paint then fade in
+                    window.requestAnimationFrame(() => {
+                        targetSection.style.opacity = '1'; 
+                        if (pageId === 'home') animateCounters();
+                    });
+                }, 200); 
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectPackage(packageName) {
+            switchPage('contact');
+            setTimeout(() => {
+                const subjectField = document.getElementById('subject-field');
+                subjectField.value = "Order: " + packageName + " Package"; 
+                subjectField.focus();
+            }, 300);
+        }
+
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+
+        // WhatsApp Handler 
+        const currentWhatsAppNo = "94704227925"; 
+        
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const phone = document.getElementById('contact-phone').value;
+            const subject = document.getElementById('subject-field').value;
+            const message = document.getElementById('contact-message').value;
+            const orderId = Math.floor(1000 + Math.random() * 9000);
+            const today = new Date().toLocaleDateString();
+
+            let waText = `================================\n`;
+            waText += `      INVOICE / ORDER DETAILS     \n`;
+            waText += `================================\n\n`;
+            waText += `Order ID    : #ORD-${orderId}\n`;
+            waText += `Date        : ${today}\n`;
+            waText += `--------------------------------\n`;
+            waText += `Client Name : ${name}\n`;
+            waText += `Contact No  : ${phone}\n`;
+            waText += `Package     : ${subject}\n`;
+            waText += `--------------------------------\n`;
+            waText += `Requirements:\n${message}\n\n`;
+            waText += `================================\n`;
+            waText += `Thank you for choosing P.Design.\n`;
+            waText += `================================`;
+
+            const encodedText = encodeURIComponent(waText);
+            const waUrl = `https://wa.me/${currentWhatsAppNo}?text=${encodedText}`;
+            window.open(waUrl, '_blank');
+            e.target.reset();
+
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('hidden'); modal.classList.add('flex'); 
+            
+            window.requestAnimationFrame(() => {
+                modal.classList.remove('opacity-0'); 
+            });
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.add('opacity-0'); 
+            setTimeout(() => { 
+                modal.classList.add('hidden'); 
+                modal.classList.remove('flex'); 
+            }, 300); 
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else { 
+                document.documentElement.classList.remove('dark'); 
+            }
+
+            lucide.createIcons();
+
+            const vid = document.getElementById('hero-bg-video');
+            if(vid) vid.load();
+
+            setTimeout(animateCounters, 200);
+        });
+    </script>
+</body>
+</html>
