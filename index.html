@@ -25,18 +25,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        /* Eye-pleasing Zinc Palette for Premium Look */
-                        premium: {
-                            50: '#fafafa',
-                            100: '#f4f4f5',
-                            200: '#e4e4e7',
-                            800: '#27272a',
-                            900: '#18181b',
-                            950: '#09090b',
+                        /* Soft Baby Blue Palette */
+                        babyblue: {
+                            50: '#f4f9ff',  /* Very soft background */
+                            100: '#e0f0fe',
+                            200: '#bae2fd',
+                            300: '#7ccbf9',
+                            400: '#36b1f2',
+                            500: '#0ea5e9', /* Primary Accent */
+                            600: '#0288d1',
+                            800: '#075985',
+                            900: '#0f172a', /* Dark Blue-Slate for Text */
                         }
                     },
                     fontFamily: {
@@ -50,7 +52,7 @@
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Google Fonts Preconnect (Ultra Fast Loading) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -59,159 +61,118 @@
         @media (min-width: 1024px) { html { font-size: 14px; } }
         @media (min-width: 1536px) { html { font-size: 15px; } }
 
-        /* Core Smoothness Optimization Engine */
+        /* Core Settings */
         body { 
             font-family: 'Inter', sans-serif;
             -webkit-user-select: none; -ms-user-select: none; user-select: none;
-            overflow-x: hidden; scroll-behavior: smooth;
-            text-rendering: optimizeLegibility;
+            overflow-x: hidden; 
+            scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            background-color: #f4f9ff;
+            color: #0f172a;
         }
         input, textarea, select { -webkit-user-select: text; user-select: text; }
 
-        /* Ultra Smooth Hardware Accelerated Cards */
+        /* Ultra Lightweight Cards - Baby Blue Hover Physics */
         .smooth-card {
             background-color: #ffffff;
-            border: 1px solid #e4e4e7;
-            /* Ultra optimized physics for hover */
-            transition: transform 0.35s cubic-bezier(0.21, 1.02, 0.73, 1), 
-                        box-shadow 0.35s cubic-bezier(0.21, 1.02, 0.73, 1),
-                        border-color 0.3s ease, background-color 0.3s ease;
-            will-change: transform;
-            transform: translateZ(0); /* Force GPU to prevent reflows */
-            backface-visibility: hidden;
-            perspective: 1000px;
-        }
-        .dark .smooth-card {
-            background-color: #18181b;
-            border: 1px solid #27272a;
+            border: 1px solid #e0f0fe;
+            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
         }
         .smooth-card:hover {
-            transform: translate3d(0, -6px, 0);
-            box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.08);
-            border-color: #d4d4d8;
-        }
-        .dark .smooth-card:hover {
-            box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.5);
-            border-color: #3f3f46;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(14, 165, 233, 0.15);
+            border-color: #bae2fd;
         }
 
-        /* Glass Navbar Optimization */
-        .nav-glass {
-            background: rgba(250, 250, 250, 0.85); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(228, 228, 231, 0.8);
-            transform: translateZ(0);
-            will-change: background-color;
-        }
-        .dark .nav-glass {
-            background: rgba(9, 9, 11, 0.85); 
-            border-bottom: 1px solid rgba(39, 39, 42, 0.8);
+        /* Solid Navbar - Crisp White/Blue */
+        .nav-solid {
+            background-color: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e0f0fe;
         }
 
-        /* 60FPS Page Transition Logic (Optimized for Blink & Gecko engines) */
+        /* Simple Page Transition - Optimized */
         .page-section {
             display: none; 
             opacity: 0; 
-            transform: scale(0.985) translate3d(0, 10px, 0);
-            transition: opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                        transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: opacity 0.3s ease;
         }
-        .page-section.active { 
-            display: block; 
-        }
-        .page-section.active.is-flex { 
-            display: flex; 
-        }
-        .page-section.active.show {
-            opacity: 1;
-            transform: scale(1) translate3d(0, 0, 0);
-        }
+        .page-section.active { display: block; }
+        .page-section.active.is-flex { display: flex; }
+        .page-section.active.show { opacity: 1; }
 
-        /* Minimal Scrollbar */
+        /* Minimal Baby Blue Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 10px; }
-        .dark ::-webkit-scrollbar-thumb { background: #3f3f46; } 
-        ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
-        .dark ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+        ::-webkit-scrollbar-track { background: #f4f9ff; }
+        ::-webkit-scrollbar-thumb { background: #bae2fd; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #7ccbf9; }
 
-        /* Image Zoom GPU Fix */
-        .img-zoom-container { overflow: hidden; transform: translateZ(0); }
-        .img-zoom-container img { 
-            transition: transform 0.5s cubic-bezier(0.21, 1.02, 0.73, 1); 
-            will-change: transform;
-        }
-        .img-zoom-container:hover img { transform: scale3d(1.05, 1.05, 1); }
+        /* Image Hover - Simple Scale */
+        .img-zoom-container { overflow: hidden; }
+        .img-zoom-container img { transition: transform 0.4s ease; }
+        .img-zoom-container:hover img { transform: scale(1.05); }
 
-        /* Optimized Modal Animations */
-        .checkmark-circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: #22c55e; fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
-        .checkmark { width: 56px; height: 56px; border-radius: 50%; display: block; stroke-width: 2; stroke: #fff; stroke-miterlimit: 10; margin: 10% auto; box-shadow: inset 0px 0px 0px #22c55e; animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; }
+        /* Checkmark Animation */
+        .checkmark-circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: #0ea5e9; fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
+        .checkmark { width: 56px; height: 56px; border-radius: 50%; display: block; stroke-width: 2; stroke: #fff; stroke-miterlimit: 10; margin: 10% auto; box-shadow: inset 0px 0px 0px #0ea5e9; animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; }
         .checkmark-check { transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }
         @keyframes stroke { 100% { stroke-dashoffset: 0; } }
-        @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
-        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px #22c55e; } }
+        @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale(1.1); } }
+        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px #0ea5e9; } }
     </style>
 </head>
-<body oncontextmenu="return false" class="bg-premium-50 dark:bg-premium-950 text-gray-900 dark:text-premium-100 min-h-screen flex flex-col relative z-0 transition-colors duration-500">
+<body oncontextmenu="return false" class="min-h-screen flex flex-col relative z-0">
 
     <!-- Navbar -->
-    <nav id="main-nav" class="fixed w-full z-50 nav-glass transition-colors duration-500">
+    <nav id="main-nav" class="fixed w-full z-50 nav-solid">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex justify-between items-center h-16 md:h-16 lg:h-20">
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer select-none group" onclick="switchPage('home')">
-                    <div class="overflow-hidden rounded-xl shadow-sm border border-gray-200 dark:border-premium-800 bg-white dark:bg-premium-900 p-0.5 transform transition-transform group-hover:scale-105 duration-300">
-                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=18181b&color=fff'" class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-lg" alt="Logo" fetchpriority="high">
+                    <div class="overflow-hidden rounded-xl shadow-sm border border-babyblue-200 bg-white p-0.5 transition-transform group-hover:-translate-y-0.5 duration-200">
+                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=0ea5e9&color=fff'" class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-lg" alt="Logo" fetchpriority="high" decoding="async">
                     </div>
                     <div>
-                        <h1 class="font-black text-lg md:text-xl tracking-tight leading-none text-gray-900 dark:text-white">.Design</h1>
-                        <p class="text-[9px] md:text-[11px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mt-0.5">Graphics Store</p>
+                        <h1 class="font-black text-lg md:text-xl tracking-tight leading-none text-babyblue-900">.Design</h1>
+                        <p class="text-[9px] md:text-[11px] text-babyblue-500 font-bold uppercase tracking-wider mt-0.5">Graphics Store</p>
                     </div>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex space-x-1 items-center bg-gray-200/50 dark:bg-premium-900/50 px-2 py-1.5 rounded-full border border-gray-200 dark:border-premium-800 backdrop-blur-sm">
-                    <button onclick="switchPage('home')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 text-gray-900 dark:text-white bg-white dark:bg-premium-800 shadow-sm transform scale-100 active:scale-95" data-target="home">Home</button>
-                    <button onclick="switchPage('services')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 transform active:scale-95" data-target="services">Services</button>
-                    <button onclick="switchPage('store')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 transform active:scale-95" data-target="store">Store</button>
-                    <button onclick="switchPage('portfolio')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 transform active:scale-95" data-target="portfolio">Portfolio</button>
-                    <button onclick="switchPage('contact')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 transform active:scale-95" data-target="contact">Contact</button>
+                <div class="hidden lg:flex space-x-1 items-center bg-white px-2 py-1.5 rounded-full border border-babyblue-100 shadow-sm">
+                    <button onclick="switchPage('home')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 text-white bg-babyblue-500 shadow-sm" data-target="home">Home</button>
+                    <button onclick="switchPage('services')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target="services">Services</button>
+                    <button onclick="switchPage('store')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target="store">Store</button>
+                    <button onclick="switchPage('portfolio')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target="portfolio">Portfolio</button>
+                    <button onclick="switchPage('contact')" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target="contact">Contact</button>
                 </div>
 
                 <div class="hidden lg:flex items-center gap-3">
-                    <button onclick="toggleTheme()" class="p-2.5 rounded-full bg-gray-100 dark:bg-premium-900 border border-gray-200 dark:border-premium-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-premium-800 transition-colors duration-300 transform active:scale-90" aria-label="Toggle Theme">
-                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
-                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-                    </button>
-                    <button onclick="switchPage('contact')" class="bg-gray-900 dark:bg-white text-white dark:text-black px-6 py-2.5 rounded-full text-sm font-bold transition-transform duration-300 hover:-translate-y-0.5 active:scale-95 flex items-center gap-2 shadow-sm">
+                    <button onclick="switchPage('contact')" class="bg-babyblue-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5 hover:bg-babyblue-600 active:scale-95 flex items-center gap-2 shadow-sm">
                         <i data-lucide="shopping-bag" class="w-4 h-4"></i> Order Now
                     </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden flex items-center gap-3">
-                    <button onclick="toggleTheme()" class="p-2 rounded-full bg-gray-100 dark:bg-premium-900 border border-gray-200 dark:border-premium-800 transition-colors duration-300" aria-label="Toggle Theme">
-                        <i data-lucide="moon" class="w-5 h-5 text-gray-700 block dark:hidden"></i>
-                        <i data-lucide="sun" class="w-5 h-5 text-gray-300 hidden dark:block"></i>
-                    </button>
-                    <button onclick="toggleMobileMenu()" class="text-gray-700 dark:text-gray-200 p-2 bg-gray-100 dark:bg-premium-900 rounded-full border border-gray-200 dark:border-premium-800 transition-colors duration-300 active:scale-95" aria-label="Menu">
+                    <button onclick="toggleMobileMenu()" class="text-babyblue-900 p-2 bg-babyblue-100 rounded-full border border-babyblue-200 transition-colors duration-200" aria-label="Menu">
                         <i data-lucide="menu" class="w-5 h-5"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 dark:border-premium-800 bg-white dark:bg-premium-950 absolute w-full left-0 shadow-xl z-[60] origin-top transition-transform duration-300">
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-babyblue-100 bg-white absolute w-full left-0 shadow-xl z-[60]">
             <div class="px-4 pt-4 pb-6 space-y-1">
-                <button onclick="switchPage('home'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors bg-gray-100 dark:bg-premium-900 text-gray-900 dark:text-white" data-target="home">Home</button>
-                <button onclick="switchPage('services'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="services">Services</button>
-                <button onclick="switchPage('store'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="store">Store</button>
-                <button onclick="switchPage('portfolio'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="portfolio">Portfolio</button>
-                <button onclick="switchPage('contact'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-gray-600 dark:text-gray-400" data-target="contact">Contact</button>
-                <div class="h-px bg-gray-200 dark:bg-premium-800 my-3"></div>
-                <button onclick="switchPage('contact'); toggleMobileMenu()" class="block w-full text-center px-5 py-3.5 rounded-xl font-bold text-white dark:text-black bg-gray-900 dark:bg-white active:scale-95 transition-transform">Order Now</button>
+                <button onclick="switchPage('home'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors bg-babyblue-50 text-babyblue-600" data-target="home">Home</button>
+                <button onclick="switchPage('services'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target="services">Services</button>
+                <button onclick="switchPage('store'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target="store">Store</button>
+                <button onclick="switchPage('portfolio'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target="portfolio">Portfolio</button>
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target="contact">Contact</button>
+                <div class="h-px bg-babyblue-100 my-3"></div>
+                <button onclick="switchPage('contact'); toggleMobileMenu()" class="block w-full text-center px-5 py-3.5 rounded-xl font-bold text-white bg-babyblue-500 transition-transform active:scale-95">Order Now</button>
             </div>
         </div>
     </nav>
@@ -224,68 +185,68 @@
             <div class="container mx-auto px-4 md:px-8 relative z-10">
                 <div class="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-20">
                     <div class="w-full lg:w-1/2 text-center lg:text-left space-y-6 mt-4 lg:mt-0">
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-premium-800 bg-white dark:bg-premium-900 text-gray-600 dark:text-gray-300 text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-sm">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-babyblue-200 bg-white text-babyblue-600 text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-sm">
                             <span class="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
-                              <span class="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-green-500"></span>
+                              <span class="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-babyblue-400"></span>
                             </span>
                             Available for Work
                         </div>
                         
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-babyblue-900 leading-[1.1]">
                             Premium Graphics <br>
-                            <span class="text-gray-500 dark:text-gray-400">Design Store</span>
+                            <span class="text-babyblue-500">Design Store</span>
                         </h1>
-                        <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                        <p class="text-base md:text-lg text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                             Welcome to my digital store. I create stunning visuals, logos, and branding materials that help your business grow. Clean, minimal, and fast delivery.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                            <button onclick="switchPage('store')" class="w-full sm:w-auto px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full font-bold transition-transform duration-300 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 shadow-md">
+                            <button onclick="switchPage('store')" class="w-full sm:w-auto px-8 py-4 bg-babyblue-500 text-white rounded-full font-bold transition-transform duration-200 hover:-translate-y-1 hover:bg-babyblue-600 active:scale-95 flex items-center justify-center gap-2 shadow-md shadow-babyblue-200">
                                 Browse Store
                             </button>
-                            <button onclick="switchPage('portfolio')" class="w-full sm:w-auto px-8 py-4 border border-gray-200 dark:border-premium-800 bg-white dark:bg-premium-900 hover:bg-gray-50 dark:hover:bg-premium-800 text-gray-900 dark:text-white rounded-full font-bold transition-transform duration-300 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2">
+                            <button onclick="switchPage('portfolio')" class="w-full sm:w-auto px-8 py-4 border border-babyblue-200 bg-white hover:bg-babyblue-50 text-babyblue-900 rounded-full font-bold transition-transform duration-200 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2">
                                 View Portfolio
                             </button>
                         </div>
 
-                        <div class="pt-8 mt-8 border-t border-gray-200 dark:border-premium-800 flex justify-between md:justify-start items-center w-full gap-6 sm:gap-12">
+                        <div class="pt-8 mt-8 border-t border-babyblue-200 flex justify-between md:justify-start items-center w-full gap-6 sm:gap-12">
                             <div class="text-left">
-                                <h3 class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
+                                <h3 class="text-2xl sm:text-3xl font-black text-babyblue-900">
                                     <span class="count-up" data-target="50">0</span>+
                                 </h3>
-                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mt-1">Projects</p>
+                                <p class="text-[10px] md:text-sm text-slate-400 font-bold uppercase tracking-wider mt-1">Projects</p>
                             </div>
                             <div class="text-left">
-                                <h3 class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
+                                <h3 class="text-2xl sm:text-3xl font-black text-babyblue-900">
                                     <span class="count-up" data-target="100">0</span>%
                                 </h3>
-                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mt-1">Satisfaction</p>
+                                <p class="text-[10px] md:text-sm text-slate-400 font-bold uppercase tracking-wider mt-1">Satisfaction</p>
                             </div>
                             <div class="text-left">
-                                <h3 class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
+                                <h3 class="text-2xl sm:text-3xl font-black text-babyblue-900">
                                     <span class="count-up" data-target="24">0</span>/7
                                 </h3>
-                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mt-1">Support</p>
+                                <p class="text-[10px] md:text-sm text-slate-400 font-bold uppercase tracking-wider mt-1">Support</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
-                        <div class="relative w-[280px] sm:w-full max-w-md lg:max-w-lg aspect-square mx-auto lg:mx-0 bg-white dark:bg-premium-900 border border-gray-200 dark:border-premium-800 rounded-[2rem] p-3 shadow-sm transform transition-transform duration-500 hover:scale-[1.02] will-change-transform">
-                            <div class="w-full h-full rounded-[1.5rem] overflow-hidden bg-gray-100 dark:bg-black">
+                        <div class="relative w-[280px] sm:w-full max-w-md lg:max-w-lg aspect-square mx-auto lg:mx-0 bg-white border border-babyblue-200 rounded-[2rem] p-3 shadow-md shadow-babyblue-100 transition-transform duration-300 hover:scale-105">
+                            <div class="w-full h-full rounded-[1.5rem] overflow-hidden bg-babyblue-50">
                                 <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover">
                                     <source src="0001.mp4" type="video/mp4">
-                                    <img src="image_612151.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?q=80&w=1000'" class="w-full h-full object-cover" alt="Hero Design">
+                                    <img src="image_612151.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?q=80&w=1000'" class="w-full h-full object-cover" alt="Hero Design" decoding="async">
                                 </video>
                             </div>
                             <!-- Static Badge -->
-                            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white dark:bg-premium-950 border border-gray-200 dark:border-premium-800 p-4 rounded-2xl shadow-xl flex items-center gap-3 transform transition-transform duration-300 hover:scale-105">
-                                <div class="bg-green-100 dark:bg-green-900/30 p-2 rounded-full text-green-600 dark:text-green-400">
+                            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white border border-babyblue-100 p-4 rounded-2xl shadow-lg flex items-center gap-3">
+                                <div class="bg-babyblue-100 p-2 rounded-full text-babyblue-600">
                                     <i data-lucide="check-circle-2" class="w-5 h-5 md:w-6 md:h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-gray-500 dark:text-gray-400 uppercase font-bold tracking-wider">Status</p>
-                                    <p class="text-sm md:text-base font-black text-gray-900 dark:text-white whitespace-nowrap">Accepting Orders</p>
+                                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Status</p>
+                                    <p class="text-sm md:text-base font-black text-babyblue-900 whitespace-nowrap">Accepting Orders</p>
                                 </div>
                             </div>
                         </div>
@@ -298,50 +259,50 @@
         <section id="services" class="page-section is-block py-12 md:py-20">
             <div class="container mx-auto px-4 md:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-xs font-black tracking-widest text-gray-500 dark:text-gray-400 uppercase mb-3">My Expertise</h2>
-                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6">Professional Design Services</h3>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">I provide a full range of creative services to lift your brand above the noise.</p>
+                    <h2 class="text-xs font-black tracking-widest text-babyblue-400 uppercase mb-3">My Expertise</h2>
+                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-babyblue-900 mb-6">Professional Design Services</h3>
+                    <p class="text-lg text-slate-500 font-medium">I provide a full range of creative services to lift your brand above the noise.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     <!-- Logo Design -->
                     <div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick="switchPage('contact')">
-                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-premium-800 flex items-center justify-center text-gray-900 dark:text-white mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
                             <i data-lucide="pen-tool" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Logo Design</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Unique, memorable logos that define your brand identity. Minimalist, modern, or complex styles.</p>
-                        <div class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-300">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                        <h4 class="text-xl font-bold text-babyblue-900 mb-3">Logo Design</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">Unique, memorable logos that define your brand identity. Minimalist, modern, or complex styles.</p>
+                        <div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                     </div>
 
                     <!-- Social Media -->
                     <div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick="switchPage('contact')">
-                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-premium-800 flex items-center justify-center text-gray-900 dark:text-white mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
                             <i data-lucide="layout" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Social Media</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Eye-catching posts and banners for Facebook, Instagram, and LinkedIn to boost engagement.</p>
-                        <div class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-300">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                        <h4 class="text-xl font-bold text-babyblue-900 mb-3">Social Media</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">Eye-catching posts and banners for Facebook, Instagram, and LinkedIn to boost engagement.</p>
+                        <div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                     </div>
 
                     <!-- Photo Retouching -->
                     <div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick="switchPage('contact')">
-                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-premium-800 flex items-center justify-center text-gray-900 dark:text-white mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
                             <i data-lucide="image" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Retouching</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Professional editing, background removal, and color correction to make your photos pop.</p>
-                        <div class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-300">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                        <h4 class="text-xl font-bold text-babyblue-900 mb-3">Retouching</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">Professional editing, background removal, and color correction to make your photos pop.</p>
+                        <div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                     </div>
 
                     <!-- Web Development -->
                     <div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick="switchPage('contact')">
-                        <div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-premium-800 flex items-center justify-center text-gray-900 dark:text-white mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
                             <i data-lucide="monitor" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Web Dev</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Custom website development, landing pages, and web applications built with modern technologies.</p>
-                        <div class="text-gray-900 dark:text-white text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-300">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                        <h4 class="text-xl font-bold text-babyblue-900 mb-3">Web Dev</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">Custom website development, landing pages, and web applications built with modern technologies.</p>
+                        <div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                     </div>
                 </div>
             </div>
@@ -351,74 +312,74 @@
         <section id="store" class="page-section is-block py-12 md:py-20">
             <div class="container mx-auto px-4 md:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4">Packages</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">Choose a package that fits your budget. Transparent pricing, no hidden fees.</p>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-babyblue-900 mb-4">Packages</h2>
+                    <p class="text-lg text-slate-500 font-medium">Choose a package that fits your budget. Transparent pricing, no hidden fees.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-center">
                     
                     <!-- Starter -->
                     <div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Starter</h3>
+                        <h3 class="text-xl font-bold text-babyblue-900">Starter</h3>
                         <div class="my-6 flex items-baseline">
-                            <span class="text-3xl font-black text-gray-900 dark:text-white">Rs. 1,500</span>
+                            <span class="text-3xl font-black text-babyblue-900">Rs. 1,500</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Perfect for small tasks and simple edits.</p>
+                        <p class="text-slate-500 text-sm mb-8 font-medium">Perfect for small tasks and simple edits.</p>
                         <ul class="space-y-4 mb-8 flex-grow text-sm">
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 1 Design Concept</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 2 Revisions</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> JPG & PNG Files</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> 1 Design Concept</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> 2 Revisions</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> JPG & PNG Files</li>
                         </ul>
-                        <button onclick="selectPackage('Starter')" class="w-full py-4 rounded-xl border border-gray-300 dark:border-premium-800 text-gray-900 dark:text-white font-bold hover:bg-gray-50 dark:hover:bg-premium-800 transition-colors duration-300 active:scale-95">Select Plan</button>
+                        <button onclick="selectPackage('Starter')" class="w-full py-4 rounded-xl border border-babyblue-200 text-babyblue-600 font-bold hover:bg-babyblue-50 transition-colors duration-200 active:scale-95">Select Plan</button>
                     </div>
 
                     <!-- Professional -->
-                    <div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full border-gray-900 dark:border-white relative transform md:-translate-y-2 z-10">
-                        <div class="absolute -top-3 right-8 bg-gray-900 dark:bg-white text-white dark:text-black text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Popular</div>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Professional</h3>
+                    <div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full border-babyblue-300 shadow-md shadow-babyblue-100 relative transform z-10">
+                        <div class="absolute -top-3 right-8 bg-babyblue-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Popular</div>
+                        <h3 class="text-xl font-bold text-babyblue-900">Professional</h3>
                         <div class="my-6 flex items-baseline">
-                            <span class="text-4xl font-black text-gray-900 dark:text-white">Rs. 3,500</span>
+                            <span class="text-4xl font-black text-babyblue-900">Rs. 3,500</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Best for logos and social media branding.</p>
+                        <p class="text-slate-500 text-sm mb-8 font-medium">Best for logos and social media branding.</p>
                         <ul class="space-y-4 mb-8 flex-grow text-sm">
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 3 Design Concepts</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Unlimited Revisions</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> High Res JPG, PNG</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Source File (PSD/AI)</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> 3 Design Concepts</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> Unlimited Revisions</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> High Res JPG, PNG</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> Source File (PSD/AI)</li>
                         </ul>
-                        <button onclick="selectPackage('Professional')" class="w-full py-4 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-black font-bold hover:opacity-90 transition-opacity duration-300 active:scale-95">Select Plan</button>
+                        <button onclick="selectPackage('Professional')" class="w-full py-4 rounded-xl bg-babyblue-500 text-white font-bold hover:bg-babyblue-600 transition-colors duration-200 active:scale-95">Select Plan</button>
                     </div>
 
                     <!-- Business -->
                     <div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Business</h3>
+                        <h3 class="text-xl font-bold text-babyblue-900">Business</h3>
                         <div class="my-6 flex items-baseline">
-                            <span class="text-3xl font-black text-gray-900 dark:text-white">Rs. 8,000</span>
+                            <span class="text-3xl font-black text-babyblue-900">Rs. 8,000</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Complete branding solution.</p>
+                        <p class="text-slate-500 text-sm mb-8 font-medium">Complete branding solution.</p>
                         <ul class="space-y-4 mb-8 flex-grow text-sm">
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Logo + Brand Book</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 5 Social Media Posts</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Business Card</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> VIP Support</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> Logo + Brand Book</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> 5 Social Media Posts</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> Business Card</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> VIP Support</li>
                         </ul>
-                        <button onclick="selectPackage('Business')" class="w-full py-4 rounded-xl border border-gray-300 dark:border-premium-800 text-gray-900 dark:text-white font-bold hover:bg-gray-50 dark:hover:bg-premium-800 transition-colors duration-300 active:scale-95">Select Plan</button>
+                        <button onclick="selectPackage('Business')" class="w-full py-4 rounded-xl border border-babyblue-200 text-babyblue-600 font-bold hover:bg-babyblue-50 transition-colors duration-200 active:scale-95">Select Plan</button>
                     </div>
 
                     <!-- Web Dev -->
                     <div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Web Dev</h3>
+                        <h3 class="text-xl font-bold text-babyblue-900">Web Dev</h3>
                         <div class="my-6 flex items-baseline">
-                            <span class="text-3xl font-black text-gray-900 dark:text-white">Rs. 20k</span>
+                            <span class="text-3xl font-black text-babyblue-900">Rs. 20k</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-8 font-medium">Complete modern website setup.</p>
+                        <p class="text-slate-500 text-sm mb-8 font-medium">Complete modern website setup.</p>
                         <ul class="space-y-4 mb-8 flex-grow text-sm">
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 5 Pages Responsive</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Contact Form & SEO</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> Free Hosting Setup</li>
-                            <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-semibold"><i data-lucide="check" class="w-4 h-4 text-gray-900 dark:text-white"></i> 1 Month Support</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> 5 Pages Responsive</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> Contact Form & SEO</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> Free Hosting Setup</li>
+                            <li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide="check" class="w-4 h-4 text-babyblue-500"></i> 1 Month Support</li>
                         </ul>
-                        <button onclick="selectPackage('Web Developing')" class="w-full py-4 rounded-xl border border-gray-300 dark:border-premium-800 text-gray-900 dark:text-white font-bold hover:bg-gray-50 dark:hover:bg-premium-800 transition-colors duration-300 active:scale-95">Select Plan</button>
+                        <button onclick="selectPackage('Web Developing')" class="w-full py-4 rounded-xl border border-babyblue-200 text-babyblue-600 font-bold hover:bg-babyblue-50 transition-colors duration-200 active:scale-95">Select Plan</button>
                     </div>
 
                 </div>
@@ -429,37 +390,37 @@
         <section id="portfolio" class="page-section is-block py-12 md:py-20">
             <div class="container mx-auto px-4 md:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4">Featured Works</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">A glimpse into my creative journey. Clean and simple.</p>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-babyblue-900 mb-4">Featured Works</h2>
+                    <p class="text-lg text-slate-500 font-medium">A glimpse into my creative journey. Clean and simple.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     
                     <div class="smooth-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
-                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-premium-900">
-                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="Neon Tech Logo" loading="lazy" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                                <span class="text-gray-300 text-xs font-bold uppercase tracking-widest mb-2">Branding</span>
+                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-babyblue-100">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="Neon Tech Logo" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-babyblue-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                <span class="text-white text-xs font-bold uppercase tracking-widest mb-2">Branding</span>
                                 <h3 class="text-white text-2xl font-bold">Neon Tech Logo</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="smooth-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
-                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-premium-900">
-                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="Instagram Grid" loading="lazy" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                                <span class="text-gray-300 text-xs font-bold uppercase tracking-widest mb-2">Social Media</span>
+                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-babyblue-100">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="Instagram Grid" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-babyblue-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                <span class="text-white text-xs font-bold uppercase tracking-widest mb-2">Social Media</span>
                                 <h3 class="text-white text-2xl font-bold">Instagram Grid</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="smooth-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
-                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-premium-900">
-                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="3D Social Logo" loading="lazy" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                                <span class="text-gray-300 text-xs font-bold uppercase tracking-widest mb-2">3D Design</span>
+                        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-babyblue-100">
+                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80'" alt="3D Social Logo" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-babyblue-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                <span class="text-white text-xs font-bold uppercase tracking-widest mb-2">3D Design</span>
                                 <h3 class="text-white text-2xl font-bold">3D App Icon</h3>
                             </div>
                         </div>
@@ -476,28 +437,28 @@
                     
                     <div class="lg:w-5/12 space-y-8 order-2 lg:order-1 w-full">
                         <div>
-                            <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-4">Let's Talk</h2>
-                            <p class="text-lg text-gray-600 dark:text-gray-400 font-medium">Have a project in mind? Fill out the form to order directly via WhatsApp.</p>
+                            <h2 class="text-3xl md:text-5xl font-black text-babyblue-900 mb-4">Let's Talk</h2>
+                            <p class="text-lg text-slate-500 font-medium">Have a project in mind? Fill out the form to order directly via WhatsApp.</p>
                         </div>
 
                         <div class="space-y-4">
                             <a id="btn-call" href="tel:0704227925" class="flex items-center gap-6 p-6 rounded-[1.5rem] smooth-card group">
-                                <div class="w-14 h-14 rounded-full bg-gray-100 dark:bg-premium-800 flex items-center justify-center text-gray-900 dark:text-white shrink-0 transform transition-transform duration-300 group-hover:scale-110">
+                                <div class="w-14 h-14 rounded-full bg-babyblue-50 flex items-center justify-center text-babyblue-600 shrink-0 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
                                     <i data-lucide="phone" class="w-6 h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold mb-1">Call Me</p>
-                                    <p class="text-xl font-black text-gray-900 dark:text-white">070 422 7925</p>
+                                    <p class="text-xs text-slate-400 uppercase font-bold mb-1">Call Me</p>
+                                    <p class="text-xl font-black text-babyblue-900">070 422 7925</p>
                                 </div>
                             </a>
 
                             <a id="btn-email" href="mailto:piyumalbherath@gmail.com" class="flex items-center gap-6 p-6 rounded-[1.5rem] smooth-card group">
-                                <div class="w-14 h-14 rounded-full bg-gray-100 dark:bg-premium-800 flex items-center justify-center text-gray-900 dark:text-white shrink-0 transform transition-transform duration-300 group-hover:scale-110">
+                                <div class="w-14 h-14 rounded-full bg-babyblue-50 flex items-center justify-center text-babyblue-600 shrink-0 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
                                     <i data-lucide="mail" class="w-6 h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold mb-1">Email</p>
-                                    <p class="text-xl font-black text-gray-900 dark:text-white break-all">piyumalbherath@gmail.com</p>
+                                    <p class="text-xs text-slate-400 uppercase font-bold mb-1">Email</p>
+                                    <p class="text-xl font-black text-babyblue-900 break-all">piyumalbherath@gmail.com</p>
                                 </div>
                             </a>
                         </div>
@@ -505,32 +466,32 @@
 
                     <div class="lg:w-7/12 w-full order-1 lg:order-2">
                         <form onsubmit="sendToWhatsApp(event)" class="smooth-card p-8 md:p-10 rounded-[2rem]">
-                            <div class="mb-8 border-b border-gray-200 dark:border-premium-800 pb-4">
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                    <i data-lucide="shopping-bag" class="text-gray-900 dark:text-white"></i> Place Your Order
+                            <div class="mb-8 border-b border-babyblue-100 pb-4">
+                                <h3 class="text-2xl font-bold text-babyblue-900 flex items-center gap-2">
+                                    <i data-lucide="shopping-bag" class="text-babyblue-500"></i> Place Your Order
                                 </h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">This form generates a professional invoice to our WhatsApp.</p>
+                                <p class="text-sm text-slate-400 mt-2">This form generates a professional invoice to our WhatsApp.</p>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
-                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
-                                    <input type="text" id="contact-name" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-premium-950 border border-gray-200 dark:border-premium-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="John Doe">
+                                    <label class="block text-sm font-bold text-babyblue-900 mb-2">Your Name</label>
+                                    <input type="text" id="contact-name" required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="John Doe">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
-                                    <input type="tel" id="contact-phone" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-premium-950 border border-gray-200 dark:border-premium-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="07x xxx xxxx">
+                                    <label class="block text-sm font-bold text-babyblue-900 mb-2">Phone Number</label>
+                                    <input type="tel" id="contact-phone" required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="07x xxx xxxx">
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Package / Subject</label>
-                                <input type="text" id="subject-field" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-premium-950 border border-gray-200 dark:border-premium-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="E.g., Starter Package">
+                                <label class="block text-sm font-bold text-babyblue-900 mb-2">Package / Subject</label>
+                                <input type="text" id="subject-field" required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="E.g., Starter Package">
                             </div>
                             <div class="mb-8">
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Message Details</label>
-                                <textarea id="contact-message" rows="4" required class="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-premium-950 border border-gray-200 dark:border-premium-800 focus:border-gray-900 dark:focus:border-white outline-none transition-colors font-medium text-gray-900 dark:text-white" placeholder="Tell me about your project needs..."></textarea>
+                                <label class="block text-sm font-bold text-babyblue-900 mb-2">Message Details</label>
+                                <textarea id="contact-message" rows="4" required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="Tell me about your project needs..."></textarea>
                             </div>
-                            <button type="submit" class="w-full py-4 bg-gray-900 dark:bg-white text-white dark:text-black rounded-xl font-bold text-lg transition-transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 shadow-md">
+                            <button type="submit" class="w-full py-4 bg-babyblue-500 text-white rounded-xl font-bold text-lg transition-transform hover:-translate-y-1 hover:bg-babyblue-600 active:scale-95 flex items-center justify-center gap-2 shadow-md shadow-babyblue-200">
                                 <i data-lucide="send" class="w-5 h-5"></i> Generate Invoice & Send
                             </button>
                         </form>
@@ -541,71 +502,71 @@
     </main>
 
     <!-- Footer -->
-    <footer id="main-footer" class="bg-white dark:bg-premium-900 border-t border-gray-200 dark:border-premium-800 py-8 mt-auto relative z-10">
+    <footer id="main-footer" class="bg-white border-t border-babyblue-200 py-8 mt-auto relative z-10">
         <div class="container mx-auto px-4 md:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-left items-start">
                 
                 <div class="flex flex-col items-start"> 
                     <div class="flex items-center gap-3 mb-3 cursor-pointer" onclick="switchPage('home')">
-                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=18181b&color=fff'" class="w-10 h-10 object-cover bg-gray-100 dark:bg-premium-800 rounded-lg border border-gray-200 dark:border-premium-800" alt="Logo" loading="lazy">
-                        <h2 class="text-xl font-black text-gray-900 dark:text-white tracking-tight">.Design</h2>
+                        <img src="image_612480.png" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=PD&background=0ea5e9&color=fff'" class="w-10 h-10 object-cover bg-babyblue-50 rounded-lg border border-babyblue-100" alt="Logo" loading="lazy" decoding="async">
+                        <h2 class="text-xl font-black text-babyblue-900 tracking-tight">.Design</h2>
                     </div>
-                    <p class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider mb-4">Graphics Store</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-4">Graphics Store</p>
                     <div class="flex gap-3">
-                        <a href="mailto:piyumalbherath@gmail.com" class="w-8 h-8 rounded-full border border-gray-200 dark:border-premium-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-premium-800 transition-colors duration-300"><i data-lucide="mail" class="w-4 h-4"></i></a>
-                        <a href="https://instagram.com/piyumalbherath" target="_blank" class="w-8 h-8 rounded-full border border-gray-200 dark:border-premium-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-premium-800 transition-colors duration-300"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="mailto:piyumalbherath@gmail.com" class="w-8 h-8 rounded-full border border-babyblue-200 flex items-center justify-center text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                        <a href="https://instagram.com/piyumalbherath" target="_blank" class="w-8 h-8 rounded-full border border-babyblue-200 flex items-center justify-center text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200"><i data-lucide="instagram" class="w-4 h-4"></i></a>
                     </div>
                 </div>
 
                 <div class="flex flex-col items-start">
-                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-4">Useful Links</h3>
-                    <ul class="space-y-3 font-semibold text-gray-500 dark:text-gray-400 text-sm">
-                        <li><button onclick="switchPage('home')" class="hover:text-gray-900 dark:hover:text-white transition-colors">Home</button></li>
-                        <li><button onclick="switchPage('store')" class="hover:text-gray-900 dark:hover:text-white transition-colors">View Store</button></li>
-                        <li><a href="https://policies.google.com/privacy" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a></li>
+                    <h3 class="text-sm font-bold text-babyblue-900 mb-4">Useful Links</h3>
+                    <ul class="space-y-3 font-semibold text-slate-500 text-sm">
+                        <li><button onclick="switchPage('home')" class="hover:text-babyblue-600 transition-colors">Home</button></li>
+                        <li><button onclick="switchPage('store')" class="hover:text-babyblue-600 transition-colors">View Store</button></li>
+                        <li><a href="https://policies.google.com/privacy" target="_blank" class="hover:text-babyblue-600 transition-colors">Privacy Policy</a></li>
                     </ul>
                 </div>
 
                 <div class="flex flex-col items-start">
-                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-4">Explore</h3>
-                    <ul class="space-y-3 font-semibold text-gray-500 dark:text-gray-400 text-sm">
-                        <li><button onclick="switchPage('services')" class="hover:text-gray-900 dark:hover:text-white transition-colors">Services</button></li>
-                        <li><button onclick="switchPage('portfolio')" class="hover:text-gray-900 dark:hover:text-white transition-colors">Portfolio</button></li>
+                    <h3 class="text-sm font-bold text-babyblue-900 mb-4">Explore</h3>
+                    <ul class="space-y-3 font-semibold text-slate-500 text-sm">
+                        <li><button onclick="switchPage('services')" class="hover:text-babyblue-600 transition-colors">Services</button></li>
+                        <li><button onclick="switchPage('portfolio')" class="hover:text-babyblue-600 transition-colors">Portfolio</button></li>
                     </ul>
                 </div>
 
                 <div class="flex flex-col items-start"> 
-                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-4">Contact</h3>
-                    <ul class="space-y-3 font-semibold text-gray-500 dark:text-gray-400 text-sm">
-                        <li><a href="tel:0704227925" class="hover:text-gray-900 dark:hover:text-white transition-colors">070 422 7925</a></li>
-                        <li><a href="mailto:piyumalbherath@gmail.com" class="hover:text-gray-900 dark:hover:text-white transition-colors">piyumalbherath@gmail.com</a></li>
+                    <h3 class="text-sm font-bold text-babyblue-900 mb-4">Contact</h3>
+                    <ul class="space-y-3 font-semibold text-slate-500 text-sm">
+                        <li><a href="tel:0704227925" class="hover:text-babyblue-600 transition-colors">070 422 7925</a></li>
+                        <li><a href="mailto:piyumalbherath@gmail.com" class="hover:text-babyblue-600 transition-colors">piyumalbherath@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 dark:border-premium-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-gray-500 dark:text-gray-400">
+            <div class="border-t border-babyblue-100 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-slate-400">
                 <div>Copyright &copy; 2026 All Rights Reserved</div>
                 <div class="flex gap-4">
-                    <a href="https://policies.google.com/terms" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
+                    <a href="https://policies.google.com/terms" target="_blank" class="hover:text-babyblue-600 transition-colors">Terms</a>
                     <span>|</span>
-                    <a href="https://policies.google.com/privacy" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy</a>
+                    <a href="https://policies.google.com/privacy" target="_blank" class="hover:text-babyblue-600 transition-colors">Privacy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-gray-900/50 dark:bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+    <div id="success-modal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-babyblue-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0">
         <div class="smooth-card p-8 rounded-[2rem] text-center w-[90%] max-w-sm">
-            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="w-16 h-16 bg-babyblue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" stroke="#fff"/>
+                    <path class="checkmark-check" fill="none" stroke="#fff" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
                 </svg>
             </div>
-            <h3 class="text-2xl font-black text-gray-900 dark:text-white mb-2">Order Processed!</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Your professional invoice has been generated and sent via WhatsApp.</p>
-            <button onclick="closeSuccessModal()" class="w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-xl font-bold transition-transform active:scale-95 shadow-md">
+            <h3 class="text-2xl font-black text-babyblue-900 mb-2">Order Processed!</h3>
+            <p class="text-sm text-slate-500 mb-6">Your professional invoice has been generated and sent via WhatsApp.</p>
+            <button onclick="closeSuccessModal()" class="w-full py-3 bg-babyblue-500 text-white rounded-xl font-bold transition-transform active:scale-95 shadow-md shadow-babyblue-200 hover:bg-babyblue-600">
                 Continue
             </button>
         </div>
@@ -626,7 +587,7 @@
         let allMobileNavBtns = [];
         let allPageSections = {};
 
-        // 60FPS Smooth Counters
+        // Lightweight Counters
         function animateCounters() {
             const counters = document.querySelectorAll('.count-up');
             counters.forEach(counter => {
@@ -639,11 +600,9 @@
                 
                 const step = (timestamp) => {
                     if (!startTimestamp) startTimestamp = timestamp;
-                    // cubic-out easing equivalent
                     let progress = Math.min((timestamp - startTimestamp) / duration, 1);
                     progress = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.floor(progress * target);
-                    counter.innerText = current;
+                    counter.innerText = Math.floor(progress * target);
                     
                     if (progress < 1) window.requestAnimationFrame(step);
                     else counter.innerText = target;
@@ -652,63 +611,45 @@
             });
         }
 
-        // Theme Toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) { 
-                html.classList.remove('dark'); localStorage.theme = 'light'; 
-            } else { 
-                html.classList.add('dark'); localStorage.theme = 'dark'; 
-            }
-        }
-
-        // Butter Smooth Page Switching Engine (Optimized DOM calls)
+        // Lightweight Page Switcher
         function switchPage(pageId) {
             const currentActive = document.querySelector('.page-section.active');
             const targetSection = allPageSections[pageId] || document.getElementById(pageId);
             if (currentActive === targetSection) return;
 
-            // Update Nav UI via Cached Nodes (No layout thrashing)
+            // Update Nav UI directly via Cached Nodes
             allNavBtns.forEach(btn => {
                 const isTarget = btn.dataset.target === pageId;
-                btn.classList.toggle('text-gray-900', isTarget);
-                btn.classList.toggle('dark:text-white', isTarget);
-                btn.classList.toggle('bg-white', isTarget);
-                btn.classList.toggle('dark:bg-premium-800', isTarget);
+                btn.classList.toggle('text-white', isTarget);
+                btn.classList.toggle('bg-babyblue-500', isTarget);
                 btn.classList.toggle('shadow-sm', isTarget);
                 
-                btn.classList.toggle('text-gray-600', !isTarget);
-                btn.classList.toggle('dark:text-gray-400', !isTarget);
+                btn.classList.toggle('text-slate-500', !isTarget);
             });
             
             allMobileNavBtns.forEach(btn => {
                 const isTarget = btn.dataset.target === pageId;
-                btn.classList.toggle('bg-gray-100', isTarget);
-                btn.classList.toggle('dark:bg-premium-900', isTarget);
-                btn.classList.toggle('text-gray-900', isTarget);
-                btn.classList.toggle('dark:text-white', isTarget);
+                btn.classList.toggle('bg-babyblue-50', isTarget);
+                btn.classList.toggle('text-babyblue-600', isTarget);
                 
-                btn.classList.toggle('text-gray-600', !isTarget);
-                btn.classList.toggle('dark:text-gray-400', !isTarget);
+                btn.classList.toggle('text-slate-500', !isTarget);
             });
 
-            // Smooth CSS Transition Switcher
+            // Smooth simple transition switcher
             if (currentActive) {
                 currentActive.classList.remove('show'); 
                 
-                // Wait for fade out, then swap display and fade in
                 setTimeout(() => { 
                     currentActive.classList.remove('active'); 
                     targetSection.classList.add('active');
                     
-                    // Double rAF ensures browser paints 'display: block' before scaling/fading
                     window.requestAnimationFrame(() => {
                         window.requestAnimationFrame(() => {
                             targetSection.classList.add('show'); 
                             if (pageId === 'home') animateCounters();
                         });
                     });
-                }, 350); // Matches the new ultra fast CSS transition time
+                }, 300); 
             } else {
                 targetSection.classList.add('active');
                 window.requestAnimationFrame(() => {
@@ -728,7 +669,7 @@
                 const subjectField = document.getElementById('subject-field');
                 subjectField.value = "Order: " + packageName + " Package"; 
                 subjectField.focus();
-            }, 400); 
+            }, 350); 
         }
 
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
@@ -784,25 +725,18 @@
             }, 300); 
         }
 
-        // Initialize App Ultra Fast
+        // Initialize Lightweight App
         document.addEventListener('DOMContentLoaded', () => {
-            // Check Theme
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else { 
-                document.documentElement.classList.remove('dark'); 
-            }
-
             lucide.createIcons();
 
-            // Cache Elements for zero DOM thrashing on click
+            // Cache Elements
             allNavBtns = Array.from(document.querySelectorAll('.nav-btn'));
             allMobileNavBtns = Array.from(document.querySelectorAll('.mobile-nav-btn'));
             document.querySelectorAll('.page-section').forEach(sec => {
                 allPageSections[sec.id] = sec;
             });
 
-            // Load Video if exists
+            // Load Video Lightly
             const vid = document.getElementById('hero-bg-video');
             if(vid) vid.load();
 
