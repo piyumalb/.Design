@@ -1,424 +1,1041 @@
-<!doctype html>
-<html lang=en>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset=UTF-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<title>P.Design | Premium Graphics Store</title>
-<meta name=description content="P.Design is a premium graphic design store offering stunning visuals, logo design, social media posts, and branding materials that help your business grow.">
-<meta name=keywords content="graphic design, logo design, social media design, branding, P.Design, Piyumal">
-<meta name=author content="Pasan Piyumal">
-<meta name=robots content="index, follow">
-<meta property=og:title content="P.Design | Graphics Store">
-<meta property=og:description content="High-quality, fast-delivery graphic design services to lift your brand above the noise.">
-<meta property=og:image content="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=1200&q=80">
-<meta property=og:url content=https://pdesign.store>
-<meta property=og:type content=website>
-<link rel=icon type=image/png href=image_612480.png>
-<script src=https://cdn.tailwindcss.com></script>
-<script>tailwind.config={theme:{extend:{colors:{babyblue:{50:"#f4f9ff",100:"#e0f0fe",200:"#bae2fd",300:"#7ccbf9",400:"#36b1f2",500:"#0ea5e9",600:"#0288d1",800:"#075985",900:"#0f172a"}},fontFamily:{sans:["Inter","sans-serif"]}}}}</script>
-<script src=https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js></script>
-<link rel=preconnect href=https://fonts.googleapis.com>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel=stylesheet>
-<style>@media (min-width:1024px){html{font-size:14px}}@media (min-width:1536px){html{font-size:15px}}body{font-family:Inter,sans-serif;-webkit-user-select:none;-ms-user-select:none;user-select:none;overflow-x:hidden;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#f4f9ff;color:#0f172a}input,select,textarea{-webkit-user-select:text;user-select:text}.smooth-card{background-color:#fff;border:1px solid #e0f0fe;transition:transform .25s ease-out,box-shadow .25s ease-out,border-color .25s ease-out;will-change:transform;transform:translateZ(0)}.smooth-card:hover{transform:translate3d(0,-5px,0);box-shadow:0 15px 30px -10px rgba(14,165,233,.15);border-color:#bae2fd}.nav-solid{background-color:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e0f0fe;transform:translateZ(0)}.page-section{display:none;opacity:0;transition:opacity .3s ease;content-visibility:auto}.page-section.active{display:block;content-visibility:visible}.page-section.active.is-flex{display:flex;content-visibility:visible}.page-section.active.show{opacity:1}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#f4f9ff}::-webkit-scrollbar-thumb{background:#bae2fd;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#7ccbf9}.img-zoom-container{overflow:hidden;transform:translateZ(0)}.img-zoom-container img{transition:transform .4s ease;will-change:transform}.img-zoom-container:hover img{transform:scale3d(1.05,1.05,1)}.checkmark-circle{stroke-dasharray:166;stroke-dashoffset:166;stroke-width:2;stroke-miterlimit:10;stroke:#0ea5e9;fill:none;animation:stroke .6s cubic-bezier(.65,0,.45,1) forwards}.checkmark{width:56px;height:56px;border-radius:50%;display:block;stroke-width:2;stroke:#fff;stroke-miterlimit:10;margin:10% auto;box-shadow:inset 0 0 0 #0ea5e9;animation:fill .4s ease-in-out .4s forwards,scale .3s ease-in-out .9s both}.checkmark-check{transform-origin:50% 50%;stroke-dasharray:48;stroke-dashoffset:48;animation:stroke .3s cubic-bezier(.65,0,.45,1) .8s forwards}@keyframes stroke{100%{stroke-dashoffset:0}}@keyframes scale{0%,100%{transform:none}50%{transform:scale3d(1.1,1.1,1)}}@keyframes fill{100%{box-shadow:inset 0 0 0 30px #0ea5e9}}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.Design | Premium Graphics Store</title>
+    <meta name="description" content="P.Design is a premium graphic design store offering stunning visuals, logo design, social media posts, and branding materials that help your business grow.">
+    <meta name="keywords" content="graphic design, logo design, social media design, branding, P.Design, Piyumal">
+    <meta name="author" content="Pasan Piyumal">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="P.Design | Graphics Store">
+    <meta property="og:description" content="High-quality, fast-delivery graphic design services to lift your brand above the noise.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=1200&q=80">
+    <meta property="og:url" content="https://pdesign.store">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="image_612480.png">
+    
+    <!-- Preconnect for Google Fonts er jonne fast loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: "#eff6ff",
+                            100: "#dbeafe",
+                            500: "#3b82f6",
+                            600: "#2563eb",
+                            900: "#1e3a8a"
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Smooth scrolling ebong antialiasing Edge, Brave, Chrome er jonne */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        @media (min-width: 1024px) {
+            html { font-size: 14px; }
+        }
+
+        @media (min-width: 1536px) {
+            html { font-size: 15px; }
+        }
+
+        body {
+            font-family: Inter, sans-serif;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            overflow-x: hidden;
+        }
+
+        input, select, textarea {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        /* Hardware acceleration jate scroll ultra smooth hoy */
+        .glass-panel {
+            background: rgba(255, 255, 255, .65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .8);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, .1);
+            will-change: transform, box-shadow;
+            transform: translateZ(0); 
+            backface-visibility: hidden;
+        }
+
+        .dark .glass-panel {
+            background: rgba(4, 10, 20, .75);
+            border: 1px solid rgba(59, 130, 246, .15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .8), inset 0 0 15px rgba(59, 130, 246, .05);
+        }
+
+        .nav-glass {
+            background: rgba(255, 255, 255, .85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, .5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, .05);
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .dark .nav-glass {
+            background: rgba(2, 6, 12, .9);
+            border-bottom: 1px solid rgba(59, 130, 246, .15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, .5);
+        }
+
+        @keyframes navSlideDown {
+            from { transform: translate3d(0, -100%, 0); opacity: 0; }
+            to { transform: translate3d(0, 0, 0); opacity: 1; }
+        }
+
+        .nav-animate-initial {
+            animation: navSlideDown .8s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
+
+        /* Optimize section loading with content-visibility */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transform: scale3d(.98, .98, 1) translate3d(0, 20px, 0);
+            transition: opacity .5s cubic-bezier(.4, 0, .2, 1), transform .5s cubic-bezier(.4, 0, .2, 1);
+            will-change: opacity, transform;
+            content-visibility: auto;
+        }
+
+        .page-section.active {
+            display: block;
+            opacity: 1;
+            transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+            content-visibility: visible;
+        }
+
+        .page-section.active.is-flex {
+            display: flex;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: 0 0; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: #1e3a8a; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .dark ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+        .live-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: linear-gradient(135deg, #f0f4fd 0, #fff 100%);
+            overflow: hidden;
+            transition: background .5s ease;
+            will-change: background;
+        }
+
+        .dark .live-bg {
+            background: linear-gradient(135deg, #000 0, #030a17 100%);
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: .6;
+            animation: floatShape infinite alternate cubic-bezier(.45, .05, .55, .95);
+            will-change: transform, opacity;
+            transform: translateZ(0); 
+        }
+
+        .dark .bg-shape {
+            opacity: .25;
+            filter: blur(70px);
+        }
+
+        .shape-1 { width: 45vw; height: 45vw; background: #dbeafe; top: -10%; left: -10%; animation-duration: 20s; }
+        .shape-2 { width: 55vw; height: 55vw; background: #ede9fe; bottom: -20%; right: -10%; animation-duration: 25s; animation-delay: -5s; }
+        .shape-3 { width: 35vw; height: 35vw; background: #fae8ff; top: 30%; left: 50%; animation-duration: 22s; animation-delay: -10s; }
+        .shape-4 { width: 30vw; height: 30vw; background: #e0f2fe; bottom: 10%; left: 10%; animation-duration: 28s; animation-delay: -2s; }
+
+        .dark .shape-1 { background: #04f; }
+        .dark .shape-2 { background: #00a2ff; }
+        .dark .shape-3 { background: #3b82f6; }
+        .dark .shape-4 { background: #0fc; }
+
+        @keyframes floatShape {
+            0% { transform: translate3d(0, 0, 0) rotate(0) scale3d(1, 1, 1); }
+            50% { transform: translate3d(6vw, 10vh, 0) rotate(180deg) scale3d(1.15, 1.15, 1); opacity: .8; }
+            100% { transform: translate3d(-4vw, -6vh, 0) rotate(360deg) scale3d(.9, .9, 1); opacity: .5; }
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+            transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform .9s cubic-bezier(.16, 1, .3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-up.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+
+        .reveal-from-left {
+            opacity: 0;
+            transform: translate3d(-40px, 0, 0);
+            transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform .9s cubic-bezier(.16, 1, .3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-from-left.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+
+        .reveal-from-right {
+            opacity: 0;
+            transform: translate3d(40px, 0, 0);
+            transition: opacity .9s cubic-bezier(.16, 1, .3, 1), transform .9s cubic-bezier(.16, 1, .3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-from-right.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale3d(.9, .9, 1);
+            transition: opacity .9s cubic-bezier(.34, 1.56, .64, 1), transform .9s cubic-bezier(.34, 1.56, .64, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-scale.is-visible { opacity: 1; transform: scale3d(1, 1, 1); }
+
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+
+        .text-shine-animate {
+            background-size: 200% auto;
+            animation: textShine 4s linear infinite;
+        }
+        @keyframes textShine {
+            0% { background-position: 0 center; }
+            100% { background-position: 200% center; }
+        }
+
+        .float-custom {
+            animation: floatingCustom 6s ease-in-out infinite;
+            will-change: transform;
+        }
+        @keyframes floatingCustom {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -12px, 0); }
+        }
+
+        @keyframes heartbeat-logo {
+            0%, 100%, 30% { transform: scale3d(1, 1, 1); filter: drop-shadow(0 0 0 rgba(59, 130, 246, 0)); }
+            15%, 45% { transform: scale3d(1.15, 1.15, 1); filter: drop-shadow(0 0 12px rgba(59, 130, 246, .8)); }
+        }
+        .animate-heartbeat {
+            animation: heartbeat-logo 2.5s ease-in-out infinite;
+            will-change: transform, filter;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, .5); }
+            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+        }
+        .badge-glow {
+            animation: pulseGlow 2s infinite;
+            will-change: box-shadow;
+        }
+
+        @keyframes badgeShine {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+        .secure-badge-anim {
+            background: linear-gradient(90deg, rgba(34, 197, 94, .05) 0, rgba(34, 197, 94, .3) 50%, rgba(34, 197, 94, .05) 100%);
+            background-size: 200% auto;
+            animation: badgeShine 3s linear infinite;
+            border: 1px solid rgba(34, 197, 94, .5);
+            box-shadow: inset 0 0 10px rgba(34, 197, 94, .2);
+        }
+
+        .glass-card-hover {
+            position: relative;
+            overflow: hidden;
+            transition: transform .5s cubic-bezier(.25, .8, .25, 1), box-shadow .5s cubic-bezier(.25, .8, .25, 1), border-color .5s ease;
+            will-change: transform, box-shadow;
+        }
+        .glass-card-hover::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: rotate(30deg) translate3d(-50%, -50%, 0);
+            transition: transform .8s ease, opacity .8s ease;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+            will-change: transform, opacity;
+        }
+        .dark .glass-card-hover::after {
+            background: linear-gradient(to right, rgba(59, 130, 246, 0) 0, rgba(59, 130, 246, .2) 50%, rgba(59, 130, 246, 0) 100%);
+        }
+        .glass-card-hover:hover {
+            transform: translate3d(0, -8px, 0) scale3d(1.02, 1.02, 1);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, .25);
+            border-color: rgba(59, 130, 246, .5);
+        }
+        .dark .glass-card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, .4);
+            background: rgba(10, 20, 35, .85);
+        }
+        .glass-card-hover:hover::after {
+            opacity: 1;
+            transform: rotate(30deg) translate3d(50%, 50%, 0);
+        }
+
+        .img-zoom-container img {
+            transition: transform .8s cubic-bezier(.25, .8, .25, 1);
+            will-change: transform;
+        }
+        .img-zoom-container:hover img {
+            transform: scale3d(1.15, 1.15, 1) rotate(2deg);
+        }
+
+        @keyframes bounce-slow {
+            0%, 100% { transform: translate3d(0, -10%, 0); }
+            50% { transform: translate3d(0, 0, 0); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 3s infinite ease-in-out;
+            will-change: transform;
+        }
+
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #22c55e;
+            fill: none;
+            animation: stroke .6s cubic-bezier(.65, 0, .45, 1) forwards;
+        }
+        .checkmark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            margin: 10% auto;
+            box-shadow: inset 0 0 0 #22c55e;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+            will-change: box-shadow, transform;
+        }
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke .3s cubic-bezier(.65, 0, .45, 1) .8s forwards;
+        }
+        @keyframes stroke { 100% { stroke-dashoffset: 0; } }
+        @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
+        @keyframes fill { 100% { box-shadow: inset 0 0 0 30px #22c55e; } }
+    </style>
 </head>
-<body oncontextmenu=return!1 class="min-h-screen flex flex-col relative z-0">
-<nav id=main-nav class="fixed w-full z-50 nav-solid">
-<div class="container mx-auto px-4 md:px-8">
-<div class="flex justify-between items-center h-16 md:h-16 lg:h-20">
-<div class="flex-shrink-0 flex items-center gap-3 cursor-pointer select-none group" onclick='switchPage("home")'>
-<div class="overflow-hidden rounded-xl shadow-sm border border-babyblue-200 bg-white p-0.5 transition-transform group-hover:-translate-y-0.5 duration-200">
-<img src=image_612480.png onerror='this.onerror=null,this.src="https://ui-avatars.com/api/?name=PD&background=0ea5e9&color=fff"' class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-lg" alt=Logo fetchpriority=high decoding=async>
-</div>
-<div>
-<h1 class="font-black text-lg md:text-xl tracking-tight leading-none text-babyblue-900">.Design</h1>
-<p class="text-[9px] md:text-[11px] text-babyblue-500 font-bold uppercase tracking-wider mt-0.5">Graphics Store</p>
-</div>
-</div>
-<div class="hidden lg:flex space-x-1 items-center bg-white px-2 py-1.5 rounded-full border border-babyblue-100 shadow-sm">
-<button onclick='switchPage("home")' class="nav-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 text-white bg-babyblue-500 shadow-sm" data-target=home>Home</button>
-<button onclick='switchPage("services")' class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target=services>Services</button>
-<button onclick='switchPage("store")' class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target=store>Store</button>
-<button onclick='switchPage("portfolio")' class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target=portfolio>Portfolio</button>
-<button onclick='switchPage("contact")' class="nav-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-babyblue-600 hover:bg-babyblue-50 transition-colors duration-200" data-target=contact>Contact</button>
-</div>
-<div class="hidden lg:flex items-center gap-3">
-<button onclick='switchPage("contact")' class="bg-babyblue-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5 hover:bg-babyblue-600 active:scale-95 flex items-center gap-2 shadow-sm">
-<i data-lucide=shopping-bag class="w-4 h-4"></i> Order Now
-</button>
-</div>
-<div class="lg:hidden flex items-center gap-3">
-<button onclick=toggleMobileMenu() class="text-babyblue-900 p-2 bg-babyblue-100 rounded-full border border-babyblue-200 transition-colors duration-200" aria-label=Menu>
-<i data-lucide=menu class="w-5 h-5"></i>
-</button>
-</div>
-</div>
-</div>
-<div id=mobile-menu class="hidden lg:hidden border-t border-babyblue-100 bg-white absolute w-full left-0 shadow-xl z-[60]">
-<div class="px-4 pt-4 pb-6 space-y-1">
-<button onclick='switchPage("home"),toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors bg-babyblue-50 text-babyblue-600" data-target=home>Home</button>
-<button onclick='switchPage("services"),toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target=services>Services</button>
-<button onclick='switchPage("store"),toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target=store>Store</button>
-<button onclick='switchPage("portfolio"),toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target=portfolio>Portfolio</button>
-<button onclick='switchPage("contact"),toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-colors text-slate-500" data-target=contact>Contact</button>
-<div class="h-px bg-babyblue-100 my-3"></div>
-<button onclick='switchPage("contact"),toggleMobileMenu()' class="block w-full text-center px-5 py-3.5 rounded-xl font-bold text-white bg-babyblue-500 transition-transform active:scale-95">Order Now</button>
-</div>
-</div>
-</nav>
-<main class="flex-grow pt-20 md:pt-24 relative z-10">
-<section id=home class="page-section is-flex min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] items-center py-6 md:py-10">
-<div class="container mx-auto px-4 md:px-8 relative z-10">
-<div class="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-20">
-<div class="w-full lg:w-1/2 text-center lg:text-left space-y-6 mt-4 lg:mt-0">
-<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-babyblue-200 bg-white text-babyblue-600 text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-sm">
-<span class="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
-<span class="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-babyblue-400"></span>
-</span>
-Available for Work
-</div>
-<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-babyblue-900 leading-[1.1]">
-Premium Graphics <br>
-<span class=text-babyblue-500>Design Store</span>
-</h1>
-<p class="text-base md:text-lg text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-Welcome to my digital store. I create stunning visuals, logos, and branding materials that help your business grow. Clean, minimal, and fast delivery.
-</p>
-<div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-<button onclick='switchPage("store")' class="w-full sm:w-auto px-8 py-4 bg-babyblue-500 text-white rounded-full font-bold transition-transform duration-200 hover:-translate-y-1 hover:bg-babyblue-600 active:scale-95 flex items-center justify-center gap-2 shadow-md shadow-babyblue-200">
-Browse Store
-</button>
-<button onclick='switchPage("portfolio")' class="w-full sm:w-auto px-8 py-4 border border-babyblue-200 bg-white hover:bg-babyblue-50 text-babyblue-900 rounded-full font-bold transition-transform duration-200 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2">
-View Portfolio
-</button>
-</div>
-<div class="pt-8 mt-8 border-t border-babyblue-200 flex justify-between md:justify-start items-center w-full gap-6 sm:gap-12">
-<div class=text-left>
-<h3 class="text-2xl sm:text-3xl font-black text-babyblue-900">
-<span class=count-up data-target=50>0</span>+
-</h3>
-<p class="text-[10px] md:text-sm text-slate-400 font-bold uppercase tracking-wider mt-1">Projects</p>
-</div>
-<div class=text-left>
-<h3 class="text-2xl sm:text-3xl font-black text-babyblue-900">
-<span class=count-up data-target=100>0</span>%
-</h3>
-<p class="text-[10px] md:text-sm text-slate-400 font-bold uppercase tracking-wider mt-1">Satisfaction</p>
-</div>
-<div class=text-left>
-<h3 class="text-2xl sm:text-3xl font-black text-babyblue-900">
-<span class=count-up data-target=24>0</span>/7
-</h3>
-<p class="text-[10px] md:text-sm text-slate-400 font-bold uppercase tracking-wider mt-1">Support</p>
-</div>
-</div>
-</div>
-<div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
-<div class="relative w-[280px] sm:w-full max-w-md lg:max-w-lg aspect-square mx-auto lg:mx-0 bg-white border border-babyblue-200 rounded-[2rem] p-3 shadow-md shadow-babyblue-100 transition-transform duration-300 hover:scale-105 will-change-transform">
-<div class="w-full h-full rounded-[1.5rem] overflow-hidden bg-babyblue-50">
-<video id=hero-bg-video autoplay loop muted playsinline preload=auto class="w-full h-full object-cover">
-<source src=0001.mp4 type=video/mp4>
-<img src=image_612151.png onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?q=80&w=1000"' class="w-full h-full object-cover" alt="Hero Design" decoding=async>
-</video>
-</div>
-<div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white border border-babyblue-100 p-4 rounded-2xl shadow-lg flex items-center gap-3 transform transition-transform duration-300 hover:scale-105">
-<div class="bg-babyblue-100 p-2 rounded-full text-babyblue-600">
-<i data-lucide=check-circle-2 class="w-5 h-5 md:w-6 md:h-6"></i>
-</div>
-<div>
-<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Status</p>
-<p class="text-sm md:text-base font-black text-babyblue-900 whitespace-nowrap">Accepting Orders</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id=services class="page-section is-block py-12 md:py-20">
-<div class="container mx-auto px-4 md:px-8">
-<div class="text-center max-w-3xl mx-auto mb-12">
-<h2 class="text-xs font-black tracking-widest text-babyblue-400 uppercase mb-3">My Expertise</h2>
-<h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-babyblue-900 mb-6">Professional Design Services</h3>
-<p class="text-lg text-slate-500 font-medium">I provide a full range of creative services to lift your brand above the noise.</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-<div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick='switchPage("contact")'>
-<div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
-<i data-lucide=pen-tool class="w-6 h-6"></i>
-</div>
-<h4 class="text-xl font-bold text-babyblue-900 mb-3">Logo Design</h4>
-<p class="text-sm text-slate-500 leading-relaxed mb-6">Unique, memorable logos that define your brand identity. Minimalist, modern, or complex styles.</p>
-<div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide=arrow-right class="w-4 h-4"></i></div>
-</div>
-<div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick='switchPage("contact")'>
-<div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
-<i data-lucide=layout class="w-6 h-6"></i>
-</div>
-<h4 class="text-xl font-bold text-babyblue-900 mb-3">Social Media</h4>
-<p class="text-sm text-slate-500 leading-relaxed mb-6">Eye-catching posts and banners for Facebook, Instagram, and LinkedIn to boost engagement.</p>
-<div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide=arrow-right class="w-4 h-4"></i></div>
-</div>
-<div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick='switchPage("contact")'>
-<div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
-<i data-lucide=image class="w-6 h-6"></i>
-</div>
-<h4 class="text-xl font-bold text-babyblue-900 mb-3">Retouching</h4>
-<p class="text-sm text-slate-500 leading-relaxed mb-6">Professional editing, background removal, and color correction to make your photos pop.</p>
-<div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide=arrow-right class="w-4 h-4"></i></div>
-</div>
-<div class="smooth-card p-8 rounded-[2rem] group cursor-pointer" onclick='switchPage("contact")'>
-<div class="w-14 h-14 rounded-2xl bg-babyblue-50 flex items-center justify-center text-babyblue-600 mb-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
-<i data-lucide=monitor class="w-6 h-6"></i>
-</div>
-<h4 class="text-xl font-bold text-babyblue-900 mb-3">Web Dev</h4>
-<p class="text-sm text-slate-500 leading-relaxed mb-6">Custom website development, landing pages, and web applications built with modern technologies.</p>
-<div class="text-babyblue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all duration-200">Order Now <i data-lucide=arrow-right class="w-4 h-4"></i></div>
-</div>
-</div>
-</div>
-</section>
-<section id=store class="page-section is-block py-12 md:py-20">
-<div class="container mx-auto px-4 md:px-8">
-<div class="text-center max-w-3xl mx-auto mb-12">
-<h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-babyblue-900 mb-4">Packages</h2>
-<p class="text-lg text-slate-500 font-medium">Choose a package that fits your budget. Transparent pricing, no hidden fees.</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-center">
-<div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full">
-<h3 class="text-xl font-bold text-babyblue-900">Starter</h3>
-<div class="my-6 flex items-baseline">
-<span class="text-3xl font-black text-babyblue-900">Rs. 1,500</span>
-</div>
-<p class="text-slate-500 text-sm mb-8 font-medium">Perfect for small tasks and simple edits.</p>
-<ul class="space-y-4 mb-8 flex-grow text-sm">
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> 1 Design Concept</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> 2 Revisions</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> JPG & PNG Files</li>
-</ul>
-<button onclick='selectPackage("Starter")' class="w-full py-4 rounded-xl border border-babyblue-200 text-babyblue-600 font-bold hover:bg-babyblue-50 transition-colors duration-200 active:scale-95">Select Plan</button>
-</div>
-<div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full border-babyblue-300 shadow-md shadow-babyblue-100 relative transform z-10">
-<div class="absolute -top-3 right-8 bg-babyblue-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Popular</div>
-<h3 class="text-xl font-bold text-babyblue-900">Professional</h3>
-<div class="my-6 flex items-baseline">
-<span class="text-4xl font-black text-babyblue-900">Rs. 3,500</span>
-</div>
-<p class="text-slate-500 text-sm mb-8 font-medium">Best for logos and social media branding.</p>
-<ul class="space-y-4 mb-8 flex-grow text-sm">
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> 3 Design Concepts</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> Unlimited Revisions</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> High Res JPG, PNG</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> Source File (PSD/AI)</li>
-</ul>
-<button onclick='selectPackage("Professional")' class="w-full py-4 rounded-xl bg-babyblue-500 text-white font-bold hover:bg-babyblue-600 transition-colors duration-200 active:scale-95">Select Plan</button>
-</div>
-<div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full">
-<h3 class="text-xl font-bold text-babyblue-900">Business</h3>
-<div class="my-6 flex items-baseline">
-<span class="text-3xl font-black text-babyblue-900">Rs. 8,000</span>
-</div>
-<p class="text-slate-500 text-sm mb-8 font-medium">Complete branding solution.</p>
-<ul class="space-y-4 mb-8 flex-grow text-sm">
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> Logo + Brand Book</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> 5 Social Media Posts</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> Business Card</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> VIP Support</li>
-</ul>
-<button onclick='selectPackage("Business")' class="w-full py-4 rounded-xl border border-babyblue-200 text-babyblue-600 font-bold hover:bg-babyblue-50 transition-colors duration-200 active:scale-95">Select Plan</button>
-</div>
-<div class="smooth-card rounded-[2rem] p-8 flex flex-col h-full">
-<h3 class="text-xl font-bold text-babyblue-900">Web Dev</h3>
-<div class="my-6 flex items-baseline">
-<span class="text-3xl font-black text-babyblue-900">Rs. 20k</span>
-</div>
-<p class="text-slate-500 text-sm mb-8 font-medium">Complete modern website setup.</p>
-<ul class="space-y-4 mb-8 flex-grow text-sm">
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> 5 Pages Responsive</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> Contact Form & SEO</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> Free Hosting Setup</li>
-<li class="flex items-center gap-3 text-babyblue-900 font-semibold"><i data-lucide=check class="w-4 h-4 text-babyblue-500"></i> 1 Month Support</li>
-</ul>
-<button onclick='selectPackage("Web Developing")' class="w-full py-4 rounded-xl border border-babyblue-200 text-babyblue-600 font-bold hover:bg-babyblue-50 transition-colors duration-200 active:scale-95">Select Plan</button>
-</div>
-</div>
-</div>
-</section>
-<section id=portfolio class="page-section is-block py-12 md:py-20">
-<div class="container mx-auto px-4 md:px-8">
-<div class="text-center max-w-3xl mx-auto mb-12">
-<h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-babyblue-900 mb-4">Featured Works</h2>
-<p class="text-lg text-slate-500 font-medium">A glimpse into my creative journey. Clean and simple.</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-<div class="smooth-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
-<div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-babyblue-100">
-<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80"' alt="Neon Tech Logo" loading=lazy decoding=async class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-babyblue-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-<span class="text-white text-xs font-bold uppercase tracking-widest mb-2">Branding</span>
-<h3 class="text-white text-2xl font-bold">Neon Tech Logo</h3>
-</div>
-</div>
-</div>
-<div class="smooth-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
-<div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-babyblue-100">
-<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000" onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80"' alt="Instagram Grid" loading=lazy decoding=async class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-babyblue-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-<span class="text-white text-xs font-bold uppercase tracking-widest mb-2">Social Media</span>
-<h3 class="text-white text-2xl font-bold">Instagram Grid</h3>
-</div>
-</div>
-</div>
-<div class="smooth-card p-3 rounded-[2rem] overflow-hidden cursor-pointer img-zoom-container group">
-<div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-babyblue-100">
-<img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000" onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80"' alt="3D Social Logo" loading=lazy decoding=async class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-babyblue-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-<span class="text-white text-xs font-bold uppercase tracking-widest mb-2">3D Design</span>
-<h3 class="text-white text-2xl font-bold">3D App Icon</h3>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id=contact class="page-section is-block py-12 md:py-20">
-<div class="container mx-auto px-4 md:px-8">
-<div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto items-start">
-<div class="lg:w-5/12 space-y-8 order-2 lg:order-1 w-full">
-<div>
-<h2 class="text-3xl md:text-5xl font-black text-babyblue-900 mb-4">Let's Talk</h2>
-<p class="text-lg text-slate-500 font-medium">Have a project in mind? Fill out the form to order directly via WhatsApp.</p>
-</div>
-<div class=space-y-4>
-<a id=btn-call href=tel:0704227925 class="flex items-center gap-6 p-6 rounded-[1.5rem] smooth-card group">
-<div class="w-14 h-14 rounded-full bg-babyblue-50 flex items-center justify-center text-babyblue-600 shrink-0 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
-<i data-lucide=phone class="w-6 h-6"></i>
-</div>
-<div>
-<p class="text-xs text-slate-400 uppercase font-bold mb-1">Call Me</p>
-<p class="text-xl font-black text-babyblue-900">070 422 7925</p>
-</div>
-</a>
-<a id=btn-email href=mailto:piyumalbherath@gmail.com class="flex items-center gap-6 p-6 rounded-[1.5rem] smooth-card group">
-<div class="w-14 h-14 rounded-full bg-babyblue-50 flex items-center justify-center text-babyblue-600 shrink-0 transition-transform duration-200 group-hover:-translate-y-1 group-hover:bg-babyblue-100">
-<i data-lucide=mail class="w-6 h-6"></i>
-</div>
-<div>
-<p class="text-xs text-slate-400 uppercase font-bold mb-1">Email</p>
-<p class="text-xl font-black text-babyblue-900 break-all">piyumalbherath@gmail.com</p>
-</div>
-</a>
-</div>
-</div>
-<div class="lg:w-7/12 w-full order-1 lg:order-2">
-<form onsubmit=sendToWhatsApp(event) class="smooth-card p-8 md:p-10 rounded-[2rem]">
-<div class="mb-8 border-b border-babyblue-100 pb-4">
-<h3 class="text-2xl font-bold text-babyblue-900 flex items-center gap-2">
-<i data-lucide=shopping-bag class=text-babyblue-500></i> Place Your Order
-</h3>
-<p class="text-sm text-slate-400 mt-2">This form generates a professional invoice to our WhatsApp.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-<div>
-<label class="block text-sm font-bold text-babyblue-900 mb-2">Your Name</label>
-<input id=contact-name required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="John Doe">
-</div>
-<div>
-<label class="block text-sm font-bold text-babyblue-900 mb-2">Phone Number</label>
-<input type=tel id=contact-phone required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="07x xxx xxxx">
-</div>
-</div>
-<div class=mb-6>
-<label class="block text-sm font-bold text-babyblue-900 mb-2">Package / Subject</label>
-<input id=subject-field required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="E.g., Starter Package">
-</div>
-<div class=mb-8>
-<label class="block text-sm font-bold text-babyblue-900 mb-2">Message Details</label>
-<textarea id=contact-message rows=4 required class="w-full px-5 py-4 rounded-xl bg-white border border-babyblue-200 focus:border-babyblue-400 outline-none transition-colors font-medium text-babyblue-900 placeholder:text-slate-300" placeholder="Tell me about your project needs..."></textarea>
-</div>
-<button type=submit class="w-full py-4 bg-babyblue-500 text-white rounded-xl font-bold text-lg transition-transform hover:-translate-y-1 hover:bg-babyblue-600 active:scale-95 flex items-center justify-center gap-2 shadow-md shadow-babyblue-200">
-<i data-lucide=send class="w-5 h-5"></i> Generate Invoice & Send
-</button>
-</form>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer id=main-footer class="bg-white border-t border-babyblue-200 py-8 mt-auto relative z-10">
-<div class="container mx-auto px-4 md:px-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-left items-start">
-<div class="flex flex-col items-start">
-<div class="flex items-center gap-3 mb-3 cursor-pointer" onclick='switchPage("home")'>
-<img src=image_612480.png onerror='this.onerror=null,this.src="https://ui-avatars.com/api/?name=PD&background=0ea5e9&color=fff"' class="w-10 h-10 object-cover bg-babyblue-50 rounded-lg border border-babyblue-100" alt=Logo loading=lazy decoding=async>
-<h2 class="text-xl font-black text-babyblue-900 tracking-tight">.Design</h2>
-</div>
-<p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-4">Graphics Store</p>
-<div class="flex gap-4 mt-1">
-<a href=mailto:piyumalbherath@gmail.com class="w-10 h-10 rounded-full border border-babyblue-200 flex items-center justify-center text-babyblue-600 hover:bg-babyblue-500 hover:text-white hover:border-babyblue-500 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
-<svg xmlns=http://www.w3.org/2000/svg width=20 height=20 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect width=20 height=16 x=2 y=4 rx=2 /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-</a>
-<a href=https://instagram.com/piyumalbherath target=_blank class="w-10 h-10 rounded-full flex items-center justify-center text-white bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-85 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1 border border-transparent">
-<svg xmlns=http://www.w3.org/2000/svg width=20 height=20 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect width=20 height=20 x=2 y=2 rx=5 ry=5 /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1=17.5 x2=17.51 y1=6.5 y2=6.5 /></svg>
-</a>
-</div>
-</div>
-<div class="flex flex-col items-start">
-<h3 class="text-sm font-bold text-babyblue-900 mb-4">Useful Links</h3>
-<ul class="space-y-3 font-semibold text-slate-500 text-sm">
-<li><button onclick='switchPage("home")' class="hover:text-babyblue-600 transition-colors">Home</button></li>
-<li><button onclick='switchPage("store")' class="hover:text-babyblue-600 transition-colors">View Store</button></li>
-<li><a href=https://policies.google.com/privacy target=_blank class="hover:text-babyblue-600 transition-colors">Privacy Policy</a></li>
-</ul>
-</div>
-<div class="flex flex-col items-start">
-<h3 class="text-sm font-bold text-babyblue-900 mb-4">Explore</h3>
-<ul class="space-y-3 font-semibold text-slate-500 text-sm">
-<li><button onclick='switchPage("services")' class="hover:text-babyblue-600 transition-colors">Services</button></li>
-<li><button onclick='switchPage("portfolio")' class="hover:text-babyblue-600 transition-colors">Portfolio</button></li>
-</ul>
-</div>
-<div class="flex flex-col items-start">
-<h3 class="text-sm font-bold text-babyblue-900 mb-4">Contact</h3>
-<ul class="space-y-3 font-semibold text-slate-500 text-sm">
-<li><a href=tel:0704227925 class="hover:text-babyblue-600 transition-colors">070 422 7925</a></li>
-<li><a href=mailto:piyumalbherath@gmail.com class="hover:text-babyblue-600 transition-colors">piyumalbherath@gmail.com</a></li>
-</ul>
-</div>
-</div>
-<div class="border-t border-babyblue-100 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-slate-400">
-<div>Copyright &copy; 2026 All Rights Reserved</div>
-<div class="flex gap-4">
-<a href=https://policies.google.com/terms target=_blank class="hover:text-babyblue-600 transition-colors">Terms</a>
-<span>|</span>
-<a href=https://policies.google.com/privacy target=_blank class="hover:text-babyblue-600 transition-colors">Privacy</a>
-</div>
-</div>
-</div>
-</footer>
-<a href=https://wa.me/94704227925 target=_blank class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] group flex items-center gap-3">
-<div class="hidden md:block bg-green-500 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 whitespace-nowrap border border-green-400">
-Click now to chat/order!
-</div>
-<div class="w-12 h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform animate-bounce-slow border-[3px] md:border-4 border-white badge-glow group-hover:shadow-green-500/50">
-<svg xmlns=http://www.w3.org/2000/svg class="w-6 h-6 md:w-7 md:h-7 group-hover:animate-pulse" viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-</div>
-</a>
-<div id=success-modal class="fixed inset-0 z-[200] hidden items-center justify-center bg-babyblue-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0">
-<div class="smooth-card p-8 rounded-[2rem] text-center w-[90%] max-w-sm">
-<div class="w-16 h-16 bg-babyblue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-<svg class=checkmark xmlns=http://www.w3.org/2000/svg viewBox="0 0 52 52">
-<circle class=checkmark-circle cx=26 cy=26 r=25 fill=none stroke=#fff />
-<path class=checkmark-check fill=none stroke=#fff d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-</svg>
-</div>
-<h3 class="text-2xl font-black text-babyblue-900 mb-2">Order Processed!</h3>
-<p class="text-sm text-slate-500 mb-6">Your professional invoice has been generated and sent via WhatsApp.</p>
-<button onclick=closeSuccessModal() class="w-full py-3 bg-babyblue-500 text-white rounded-xl font-bold transition-transform active:scale-95 shadow-md shadow-babyblue-200 hover:bg-babyblue-600">
-Continue
-</button>
-</div>
-</div>
-<script>document.addEventListener("contextmenu",(e=>e.preventDefault())),document.addEventListener("keydown",(e=>{if("F12"===e.key||e.ctrlKey&&"u"===e.key||e.ctrlKey&&e.shiftKey&&("I"===e.key||"J"===e.key))return e.preventDefault(),!1}));let allNavBtns=[],allMobileNavBtns=[],allPageSections={};function animateCounters(){document.querySelectorAll(".count-up").forEach((e=>{const t=+e.getAttribute("data-target");if(parseInt(e.innerText)===t)return;e.innerText="0";let n=null;const o=a=>{n||(n=a);let s=Math.min((a-n)/1200,1);s=1-Math.pow(1-s,3),e.innerText=Math.floor(s*t),s<1?window.requestAnimationFrame(o):e.innerText=t};window.requestAnimationFrame(o)}))}function switchPage(e){const t=document.querySelector(".page-section.active"),n=allPageSections[e]||document.getElementById(e);t!==n&&(allNavBtns.forEach((t=>{const n=t.dataset.target===e;t.classList.toggle("text-white",n),t.classList.toggle("bg-babyblue-500",n),t.classList.toggle("shadow-sm",n),t.classList.toggle("text-slate-500",!n)})),allMobileNavBtns.forEach((t=>{const n=t.dataset.target===e;t.classList.toggle("bg-babyblue-50",n),t.classList.toggle("text-babyblue-600",n),t.classList.toggle("text-slate-500",!n)})),t?(t.classList.remove("show"),setTimeout((()=>{t.classList.remove("active"),n.classList.add("active"),window.requestAnimationFrame((()=>{window.requestAnimationFrame((()=>{n.classList.add("show"),"home"===e&&animateCounters()}))}))}),300)):(n.classList.add("active"),window.requestAnimationFrame((()=>{window.requestAnimationFrame((()=>{n.classList.add("show"),"home"===e&&animateCounters()}))}))),window.scrollTo({top:0,behavior:"smooth"}))}function selectPackage(e){switchPage("contact"),setTimeout((()=>{const t=document.getElementById("subject-field");t.value="Order: "+e+" Package",t.focus()}),350)}function toggleMobileMenu(){document.getElementById("mobile-menu").classList.toggle("hidden")}const currentWhatsAppNo="94704227925";function sendToWhatsApp(e){e.preventDefault();const t=document.getElementById("contact-name").value,n=document.getElementById("contact-phone").value,o=document.getElementById("subject-field").value,a=document.getElementById("contact-message").value;let s="================================\n";s+="      INVOICE / ORDER DETAILS     \n",s+="================================\n\n",s+=`Order ID    : #ORD-${Math.floor(1e3+9e3*Math.random())}\n`,s+=`Date        : ${(new Date).toLocaleDateString()}\n`,s+="--------------------------------\n",s+=`Client Name : ${t}\n`,s+=`Contact No  : ${n}\n`,s+=`Package     : ${o}\n`,s+="--------------------------------\n",s+=`Requirements:\n${a}\n\n`,s+="================================\n",s+="Thank you for choosing P.Design.\n",s+="================================";const c=`https://wa.me/94704227925?text=${encodeURIComponent(s)}`;window.open(c,"_blank"),e.target.reset();const l=document.getElementById("success-modal");l.classList.remove("hidden"),l.classList.add("flex"),window.requestAnimationFrame((()=>{window.requestAnimationFrame((()=>{l.classList.remove("opacity-0")}))}))}function closeSuccessModal(){const e=document.getElementById("success-modal");e.classList.add("opacity-0"),setTimeout((()=>{e.classList.add("hidden"),e.classList.remove("flex")}),300)}document.addEventListener("DOMContentLoaded",(()=>{"undefined"!=typeof lucide?lucide.createIcons():console.warn("Lucide icons failed to load."),allNavBtns=Array.from(document.querySelectorAll(".nav-btn")),allMobileNavBtns=Array.from(document.querySelectorAll(".mobile-nav-btn")),document.querySelectorAll(".page-section").forEach((e=>{allPageSections[e.id]=e}));const e=document.getElementById("hero-bg-video");e&&e.load();const t=document.getElementById("home");t.classList.add("active"),window.requestAnimationFrame((()=>{t.classList.add("show"),animateCounters()}))}))</script>
+
+<body oncontextmenu="return!1" class="text-gray-900 dark:text-gray-100 min-h-screen flex flex-col relative z-0 transition-colors duration-500 antialiased">
+    
+    <div class="live-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+    <!-- Nav section -->
+    <nav id="main-nav" class="fixed w-full z-50 nav-glass transition-all duration-300 nav-animate-initial">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex justify-between items-center h-16 md:h-16 lg:h-20">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer select-none group" onclick='switchPage("home")'>
+                    <div class="overflow-hidden rounded-xl shadow-md border border-white/50 dark:border-blue-500/30 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 bg-white dark:bg-black/50 p-0.5">
+                        <!-- image rendering optimized -->
+                        <img src="image_612480.png" onerror='this.onerror=null,this.src="https://ui-avatars.com/api/?name=PD&background=3b82f6&color=fff"' class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-lg" alt="Logo" decoding="async">
+                    </div>
+                    <div>
+                        <h1 class="font-black text-lg md:text-xl tracking-tight leading-none text-blue-600 dark:text-blue-400 transition-colors group-hover:text-violet-600 dark:group-hover:text-blue-300">.Design</h1>
+                        <p class="text-[9px] md:text-[11px] text-gray-500 dark:text-blue-200/60 font-bold uppercase tracking-wider">Graphics Store</p>
+                    </div>
+                </div>
+                <div class="hidden lg:flex space-x-2 items-center bg-white/50 dark:bg-black/40 px-2 py-1.5 rounded-2xl border border-white/60 dark:border-blue-500/20 shadow-sm backdrop-blur-md">
+                    <button onclick='switchPage("home")' class="nav-btn px-5 py-2 rounded-xl text-sm font-bold transition-all duration-300 text-blue-600 dark:text-blue-400 bg-white dark:bg-blue-900/40 shadow-sm hover:scale-105" data-target="home">Home</button>
+                    <button onclick='switchPage("services")' class="nav-btn px-5 py-2 rounded-xl text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/50 dark:hover:bg-blue-900/40 transition-all duration-300 hover:scale-105" data-target="services">Services</button>
+                    <button onclick='switchPage("store")' class="nav-btn px-5 py-2 rounded-xl text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/50 dark:hover:bg-blue-900/40 transition-all duration-300 hover:scale-105" data-target="store">Store</button>
+                    <button onclick='switchPage("portfolio")' class="nav-btn px-5 py-2 rounded-xl text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/50 dark:hover:bg-blue-900/40 transition-all duration-300 hover:scale-105" data-target="portfolio">Portfolio</button>
+                    <button onclick='switchPage("contact")' class="nav-btn px-5 py-2 rounded-xl text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/50 dark:hover:bg-blue-900/40 transition-all duration-300 hover:scale-105" data-target="contact">Contact</button>
+                </div>
+                <div class="hidden lg:flex items-center gap-3">
+                    <button onclick='switchPage("contact")' class="group bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700 dark:from-blue-500 dark:to-cyan-500 text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50 active:scale-95 flex items-center gap-2 border border-transparent dark:border-blue-400/30">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 group-hover:scale-110 transition-transform"></i> Order Now
+                    </button>
+                </div>
+                <div class="lg:hidden flex items-center gap-3">
+                    <button onclick="toggleMobileMenu()" class="text-gray-700 dark:text-gray-200 p-2 bg-white/60 dark:bg-black/40 rounded-xl border border-white dark:border-blue-500/20 shadow-sm active:scale-95 transition-transform" aria-label="Menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-white/50 dark:border-blue-500/20 nav-glass absolute w-full left-0 shadow-xl z-[60]">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <button onclick='switchPage("home");toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-all bg-blue-600 dark:bg-blue-500 text-white shadow-md" data-target="home">Home</button>
+                <button onclick='switchPage("services");toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-all bg-transparent text-gray-600 dark:text-gray-300" data-target="services">Services</button>
+                <button onclick='switchPage("store");toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-all bg-transparent text-gray-600 dark:text-gray-300" data-target="store">Store</button>
+                <button onclick='switchPage("portfolio");toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-all bg-transparent text-gray-600 dark:text-gray-300" data-target="portfolio">Portfolio</button>
+                <button onclick='switchPage("contact");toggleMobileMenu()' class="mobile-nav-btn block w-full text-left px-5 py-3.5 rounded-xl font-bold transition-all bg-transparent text-gray-600 dark:text-gray-300" data-target="contact">Contact</button>
+                <div class="h-px bg-gray-200 dark:bg-blue-900/50 my-2"></div>
+                <button onclick='switchPage("contact");toggleMobileMenu()' class="block w-full text-center px-5 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-cyan-500 shadow-md">Order Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-20 md:pt-24 relative z-10">
+        
+        <!-- Home Section -->
+        <section id="home" class="page-section is-flex min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] items-center py-6 md:py-10">
+            <div class="container mx-auto px-4 md:px-8 relative z-10">
+                <div class="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-20">
+                    <div class="w-full lg:w-1/2 text-center lg:text-left space-y-5 md:space-y-8 mt-4 lg:mt-0">
+                        <div class="reveal-up float-custom inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-panel text-blue-600 dark:text-blue-400 text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-lg">
+                            <span class="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 dark:bg-blue-300 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-blue-500 dark:bg-blue-400"></span>
+                            </span>Available for Work
+                        </div>
+                        <h1 class="reveal-up delay-100 text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+                            <span>Premium Graphics<br></span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-violet-600 dark:from-blue-400 dark:via-cyan-300 dark:to-blue-500 text-shine-animate inline-block pb-2">Design Store</span>
+                        </h1>
+                        <p class="reveal-up delay-200 text-base md:text-lg lg:text-xl text-gray-600 dark:text-blue-100/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium px-2 lg:px-0">
+                            Welcome to my digital store. I create stunning visuals, logos, and branding materials that help your business grow. High quality, fast delivery.
+                        </p>
+                        <div class="reveal-up delay-300 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 md:gap-4 pt-2">
+                            <button onclick='switchPage("store")' class="group w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-cyan-600 hover:from-blue-700 hover:to-violet-700 text-white rounded-2xl font-bold shadow-xl shadow-blue-500/25 dark:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-blue-500/50 active:scale-95 flex items-center justify-center gap-2 text-sm md:text-base border border-transparent dark:border-blue-400/30">
+                                <i data-lucide="shopping-cart" class="w-4 h-4 md:w-5 md:h-5 group-hover:-rotate-12 transition-transform duration-300"></i> Browse Store
+                            </button>
+                            <button onclick='switchPage("portfolio")' class="group w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 glass-panel hover:bg-white/90 dark:hover:bg-blue-900/50 text-gray-900 dark:text-white rounded-2xl font-bold transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl active:scale-95 flex items-center justify-center gap-2 text-sm md:text-base">
+                                <i data-lucide="image" class="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-300"></i> View Portfolio
+                            </button>
+                        </div>
+                        <div class="reveal-up delay-400 pt-6 mt-6 md:pt-8 md:mt-8 border-t border-gray-200 dark:border-blue-800/40 flex justify-between md:justify-start items-center w-full gap-2 sm:gap-8 px-2 lg:px-0">
+                            <div class="text-center lg:text-left flex-1 lg:flex-none group">
+                                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white flex items-baseline justify-center lg:justify-start group-hover:scale-105 transition-transform duration-300">
+                                    <span class="count-up" data-target="50">0</span><span class="text-lg md:text-2xl text-blue-600 dark:text-blue-400 ml-0.5">+</span>
+                                </h3>
+                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-blue-200/50 font-bold uppercase tracking-wider mt-1 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">Projects</p>
+                            </div>
+                            <div class="w-px h-8 bg-gray-200 dark:bg-blue-800/40 block lg:hidden"></div>
+                            <div class="text-center lg:text-left flex-1 lg:flex-none group">
+                                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white flex items-baseline justify-center lg:justify-start group-hover:scale-105 transition-transform duration-300">
+                                    <span class="count-up" data-target="100">0</span><span class="text-lg md:text-2xl text-violet-600 dark:text-cyan-400 ml-0.5">%</span>
+                                </h3>
+                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-blue-200/50 font-bold uppercase tracking-wider mt-1 group-hover:text-violet-500 dark:group-hover:text-cyan-300 transition-colors">Satisfaction</p>
+                            </div>
+                            <div class="w-px h-8 bg-gray-200 dark:bg-blue-800/40 block lg:hidden"></div>
+                            <div class="text-center lg:text-left flex-1 lg:flex-none group">
+                                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white flex items-baseline justify-center lg:justify-start group-hover:scale-105 transition-transform duration-300">
+                                    <span class="count-up" data-target="24">0</span><span class="text-lg md:text-2xl text-pink-600 dark:text-blue-500 ml-0.5">/7</span>
+                                </h3>
+                                <p class="text-[10px] md:text-sm text-gray-500 dark:text-blue-200/50 font-bold uppercase tracking-wider mt-1 group-hover:text-pink-500 dark:group-hover:text-blue-400 transition-colors">Support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 relative flex justify-center lg:justify-end reveal-from-right delay-200 float-custom">
+                        <div class="relative w-[260px] sm:w-full max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg aspect-square mx-auto lg:mx-0">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-400/40 to-violet-400/40 dark:from-blue-600/50 dark:to-cyan-400/50 rounded-[2rem] md:rounded-[2.5rem] rotate-6 backdrop-blur-xl transition-all duration-700 hover:rotate-12 hover:scale-105 border border-white/50 dark:border-blue-400/20 z-0"></div>
+                            <div class="relative w-full h-full glass-panel rounded-[1.8rem] md:rounded-[2rem] p-2.5 md:p-3 shadow-2xl overflow-hidden group z-10 transition-transform duration-700 hover:scale-[1.03]">
+                                <div class="w-full h-full rounded-[1.3rem] md:rounded-[1.5rem] overflow-hidden relative bg-white dark:bg-black/60">
+                                    <video id="hero-bg-video" autoplay loop muted playsinline class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                                        <source src="0001.mp4" type="video/mp4">
+                                        <img src="image_612151.png" onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?q=80&w=1000"' class="w-full h-full object-cover" alt="Hero Design" decoding="async">
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 glass-panel p-3 md:p-4 rounded-xl md:rounded-2xl shadow-2xl flex items-center gap-3 md:gap-4 z-20 hover:scale-110 transition-transform duration-300 badge-glow">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-2 md:p-3 rounded-full text-green-600 dark:text-green-400 shadow-inner">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 md:w-6 md:h-6 animate-pulse"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] md:text-[10px] text-gray-500 dark:text-blue-200/60 uppercase font-bold tracking-wider">Status</p>
+                                    <p class="text-xs sm:text-sm md:text-base font-black text-gray-900 dark:text-white whitespace-nowrap">Accepting Orders</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 reveal-up">
+                    <h2 class="text-xs md:text-sm font-black tracking-widest text-blue-600 dark:text-blue-400 uppercase mb-2 md:mb-3">My Expertise</h2>
+                    <h3 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 md:mb-6">Professional Design Services</h3>
+                    <p class="text-base md:text-lg text-gray-600 dark:text-blue-100/70 font-medium">I provide a full range of creative services to lift your brand above the noise.</p>
+                </div>
+                <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+                    <!-- Service Card -->
+                    <div class="group glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] glass-card-hover reveal-scale delay-100">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-400 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-blue-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i data-lucide="pen-tool" class="w-7 h-7 md:w-8 md:h-8"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">Logo Design</h4>
+                        <p class="text-sm md:text-base text-gray-600 dark:text-blue-100/60 leading-relaxed mb-5 md:mb-6 font-medium z-10 relative">Unique, memorable logos that define your brand identity. Minimalist, modern, or complex styles.</p>
+                        <button onclick='switchPage("contact")' class="text-blue-600 dark:text-blue-400 text-sm md:text-base font-bold flex items-center gap-2 group-hover:gap-4 transition-all z-10 relative">Order Now <i data-lucide="arrow-right" class="w-4 h-4 md:w-5 md:h-5"></i></button>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="group glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] glass-card-hover reveal-scale delay-200">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 dark:from-violet-600 dark:to-violet-400 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-violet-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i data-lucide="layout" class="w-7 h-7 md:w-8 md:h-8"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">Social Media Posts</h4>
+                        <p class="text-sm md:text-base text-gray-600 dark:text-blue-100/60 leading-relaxed mb-5 md:mb-6 font-medium z-10 relative">Eye-catching posts and banners for Facebook, Instagram, and LinkedIn to boost engagement.</p>
+                        <button onclick='switchPage("contact")' class="text-violet-600 dark:text-violet-400 text-sm md:text-base font-bold flex items-center gap-2 group-hover:gap-4 transition-all z-10 relative">Order Now <i data-lucide="arrow-right" class="w-4 h-4 md:w-5 md:h-5"></i></button>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="group glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] glass-card-hover reveal-scale delay-300">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 dark:from-pink-600 dark:to-pink-400 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i data-lucide="image" class="w-7 h-7 md:w-8 md:h-8"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">Photo Retouching</h4>
+                        <p class="text-sm md:text-base text-gray-600 dark:text-blue-100/60 leading-relaxed mb-5 md:mb-6 font-medium z-10 relative">Professional editing, background removal, and color correction to make your photos pop.</p>
+                        <button onclick='switchPage("contact")' class="text-pink-600 dark:text-pink-400 text-sm md:text-base font-bold flex items-center gap-2 group-hover:gap-4 transition-all z-10 relative">Order Now <i data-lucide="arrow-right" class="w-4 h-4 md:w-5 md:h-5"></i></button>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="group glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] glass-card-hover reveal-scale delay-400">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 dark:from-green-600 dark:to-green-400 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-green-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i data-lucide="monitor" class="w-7 h-7 md:w-8 md:h-8"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">Web Development</h4>
+                        <p class="text-sm md:text-base text-gray-600 dark:text-blue-100/60 leading-relaxed mb-5 md:mb-6 font-medium z-10 relative">Custom website development, landing pages, and web applications built with modern technologies.</p>
+                        <button onclick='switchPage("contact")' class="text-green-600 dark:text-green-400 text-sm md:text-base font-bold flex items-center gap-2 group-hover:gap-4 transition-all z-10 relative">Order Now <i data-lucide="arrow-right" class="w-4 h-4 md:w-5 md:h-5"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Section -->
+        <section id="store" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 reveal-up">
+                    <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 md:mb-6">Packages</h2>
+                    <p class="text-base md:text-lg text-gray-600 dark:text-blue-100/70 font-medium">Choose a package that fits your budget. Transparent pricing, no hidden fees.</p>
+                </div>
+                <div id="packages-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-center">
+                    <!-- Package Starter -->
+                    <div class="glass-panel rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col relative glass-card-hover reveal-scale delay-100">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white relative z-10">Starter</h3>
+                        <div class="my-4 md:my-6 flex items-baseline relative z-10">
+                            <span class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Rs. 1,500</span> 
+                            <span class="ml-2 text-gray-500 dark:text-blue-200/50 text-xs md:text-sm font-semibold">/project</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-blue-100/60 text-sm mb-6 md:mb-8 font-medium relative z-10">Perfect for small tasks and simple edits.</p>
+                        <ul class="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-grow text-sm md:text-base relative z-10">
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>1 Design Concept
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>2 Revisions
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>JPG & PNG Files
+                            </li>
+                        </ul>
+                        <button onclick='selectPackage("Starter")' class="w-full py-3.5 md:py-4 rounded-xl border-2 border-gray-800 dark:border-blue-500/50 text-gray-900 dark:text-white font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-blue-600 transition-colors duration-300 active:scale-95 text-sm md:text-base relative z-10">Select Plan</button>
+                    </div>
+                    
+                    <!-- Package Professional (Popular) -->
+                    <div class="relative rounded-[1.5rem] md:rounded-[2rem] p-1 bg-gradient-to-b from-blue-500 to-violet-600 dark:from-cyan-400 dark:to-blue-600 transform md:-translate-y-4 shadow-2xl reveal-scale delay-200 z-20 group hover:-translate-y-6 transition-transform duration-500">
+                        <div class="absolute -top-3 right-6 md:-top-4 md:right-8 bg-gradient-to-r from-pink-500 to-orange-400 dark:from-blue-500 dark:to-cyan-400 text-white text-[10px] md:text-xs font-black px-3 md:px-4 py-1 md:py-1.5 rounded-full shadow-lg uppercase tracking-wider animate-pulse">Popular</div>
+                        <div class="bg-white/95 dark:bg-[#020611]/95 backdrop-blur-xl rounded-[1.3rem] md:rounded-[1.8rem] p-6 md:p-8 h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 dark:via-blue-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                            <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white relative z-10">Professional</h3>
+                            <div class="my-4 md:my-6 flex items-baseline relative z-10">
+                                <span class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">Rs. 3,500</span> 
+                                <span class="ml-2 text-gray-500 dark:text-blue-200/50 text-xs md:text-sm font-semibold">/project</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-blue-100/60 text-sm mb-6 md:mb-8 font-medium relative z-10">Best for logos and social media branding.</p>
+                            <ul class="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-grow text-sm md:text-base relative z-10">
+                                <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                    <div class="bg-blue-100 dark:bg-blue-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400"></i></div>3 Design Concepts
+                                </li>
+                                <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                    <div class="bg-blue-100 dark:bg-blue-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400"></i></div>Unlimited Revisions
+                                </li>
+                                <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                    <div class="bg-blue-100 dark:bg-blue-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400"></i></div>High Res JPG, PNG
+                                </li>
+                                <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                    <div class="bg-blue-100 dark:bg-blue-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400"></i></div>Source File (PSD/AI)
+                                </li>
+                            </ul>
+                            <button onclick='selectPackage("Professional")' class="w-full py-3.5 md:py-4 rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-600 dark:to-cyan-500 hover:from-blue-700 hover:to-violet-700 text-white font-bold transition-all shadow-lg hover:shadow-xl active:scale-95 text-sm md:text-base relative z-10 border border-transparent dark:border-blue-400/30">Select Plan</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Package Business -->
+                    <div class="glass-panel rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col relative glass-card-hover reveal-scale delay-300">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white relative z-10">Business</h3>
+                        <div class="my-4 md:my-6 flex items-baseline relative z-10">
+                            <span class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Rs. 8,000</span> 
+                            <span class="ml-2 text-gray-500 dark:text-blue-200/50 text-xs md:text-sm font-semibold">/package</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-blue-100/60 text-sm mb-6 md:mb-8 font-medium relative z-10">Complete branding solution.</p>
+                        <ul class="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-grow text-sm md:text-base relative z-10">
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>Logo + Brand Book
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>5 Social Media Posts
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>Business Card
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>VIP Support
+                            </li>
+                        </ul>
+                        <button onclick='selectPackage("Business")' class="w-full py-3.5 md:py-4 rounded-xl border-2 border-gray-800 dark:border-blue-500/50 text-gray-900 dark:text-white font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-blue-600 transition-colors duration-300 active:scale-95 text-sm md:text-base relative z-10">Select Plan</button>
+                    </div>
+                    
+                    <!-- Package Web Dev -->
+                    <div class="glass-panel rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col relative glass-card-hover reveal-scale delay-400">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white relative z-10">Web Developing</h3>
+                        <div class="my-4 md:my-6 flex items-baseline relative z-10">
+                            <span class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Rs. 20,000</span> 
+                            <span class="ml-2 text-gray-500 dark:text-blue-200/50 text-xs md:text-sm font-semibold">/website</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-blue-100/60 text-sm mb-6 md:mb-8 font-medium relative z-10">Complete modern website for your business.</p>
+                        <ul class="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-grow text-sm md:text-base relative z-10">
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>5 Pages Responsive Website
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>Contact Form & SEO
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>Free Hosting Setup
+                            </li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-800 dark:text-gray-200 font-bold hover:translate-x-1 transition-transform">
+                                <div class="bg-green-100 dark:bg-green-500/20 p-1 rounded-full group-hover:scale-110 transition-transform"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400"></i></div>1 Month Support
+                            </li>
+                        </ul>
+                        <button onclick='selectPackage("Web Developing")' class="w-full py-3.5 md:py-4 rounded-xl border-2 border-gray-800 dark:border-blue-500/50 text-gray-900 dark:text-white font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-blue-600 transition-colors duration-300 active:scale-95 text-sm md:text-base relative z-10">Select Plan</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 reveal-up">
+                    <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 md:mb-6">Featured Works</h2>
+                    <p class="text-base md:text-lg text-gray-600 dark:text-blue-100/70 font-medium">A glimpse into my creative journey. Click any image to see details.</p>
+                </div>
+                <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+                    <div class="group glass-panel p-2 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer glass-card-hover reveal-scale delay-100 img-zoom-container border-white/50 dark:border-blue-500/20">
+                        <div class="relative rounded-[1.2rem] md:rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-[#020611] relative z-10">
+                            <!-- Image load optimize kora hoyeche -->
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80"' alt="Neon Tech Logo" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 dark:from-black dark:via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8">
+                                <span class="text-blue-400 text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 md:mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Branding</span>
+                                <h3 class="text-white text-xl md:text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Neon Tech Logo</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group glass-panel p-2 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer glass-card-hover reveal-scale delay-200 img-zoom-container border-white/50 dark:border-blue-500/20">
+                        <div class="relative rounded-[1.2rem] md:rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-[#020611] relative z-10">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000" onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80"' alt="Instagram Grid" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 dark:from-black dark:via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8">
+                                <span class="text-blue-400 text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 md:mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Social Media</span>
+                                <h3 class="text-white text-xl md:text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Instagram Grid</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group glass-panel p-2 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer glass-card-hover reveal-scale delay-300 img-zoom-container border-white/50 dark:border-blue-500/20">
+                        <div class="relative rounded-[1.2rem] md:rounded-[1.5rem] overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-[#020611] relative z-10">
+                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000" onerror='this.onerror=null,this.src="https://images.unsplash.com/photo-1626785773579-c10f8450ef75?w=800&q=80"' alt="3D Social Logo" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 dark:from-black dark:via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8">
+                                <span class="text-blue-400 text-[10px] md:text-xs font-black uppercase tracking-widest mb-1 md:mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">3D Design</span>
+                                <h3 class="text-white text-xl md:text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">3D App Icon</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="page-section is-block py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
+                    <div class="lg:w-5/12 space-y-6 md:space-y-8 reveal-from-left delay-100 order-2 lg:order-1 w-full">
+                        <div class="text-center lg:text-left">
+                            <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-3 md:mb-4">Let's Talk</h2>
+                            <p class="text-base md:text-lg text-gray-600 dark:text-blue-100/70 font-medium">Have a project in mind? Fill out the form to order directly via WhatsApp.</p>
+                        </div>
+                        <div class="space-y-3 md:space-y-4">
+                            <a id="btn-call" href="tel:0704227925" class="flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-[1rem] md:rounded-[1.5rem] glass-panel hover:bg-white dark:hover:bg-[#0a1526] transition-all duration-300 hover:scale-105 group">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-green-100 dark:bg-green-500/20 flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-sm shrink-0">
+                                    <i data-lucide="phone" class="w-5 h-5 md:w-6 md:h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] md:text-xs text-gray-500 dark:text-blue-200/50 uppercase font-bold mb-0.5 md:mb-1">Call Me</p>
+                                    <p class="text-lg md:text-xl font-black text-gray-900 dark:text-white">070 422 7925</p>
+                                </div>
+                            </a>
+                            <a id="btn-email" href="mailto:piyumalbherath@gmail.com" class="flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-[1rem] md:rounded-[1.5rem] glass-panel hover:bg-white dark:hover:bg-[#0a1526] transition-all duration-300 hover:scale-105 group">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300 shadow-sm shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5 md:w-6 md:h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] md:text-xs text-gray-500 dark:text-blue-200/50 uppercase font-bold mb-0.5 md:mb-1">Email</p>
+                                    <p class="text-lg md:text-xl font-black text-gray-900 dark:text-white break-all">piyumalbherath@gmail.com</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-7/12 w-full reveal-from-right delay-200 order-1 lg:order-2">
+                        <form onsubmit="sendToWhatsApp(event)" class="glass-panel p-6 md:p-10 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative overflow-hidden bg-white/60 dark:bg-[#040a14]/60 transition-transform duration-500 hover:shadow-blue-500/20 dark:hover:shadow-blue-500/40 hover:-translate-y-2 border border-white/50 dark:border-blue-500/20">
+                            <div class="mb-5 md:mb-6 border-b border-gray-200 dark:border-blue-900/50 pb-3 md:pb-4">
+                                <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2"><i data-lucide="shopping-bag" class="text-blue-600 dark:text-blue-400"></i> Place Your Order</h3>
+                                <p class="text-xs md:text-sm text-gray-500 dark:text-blue-100/60 font-medium mt-1">This form will generate a professional invoice to our WhatsApp.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                                <div class="group">
+                                    <label class="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 md:mb-2 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400 transition-colors">Your Name</label> 
+                                    <input id="contact-name" required class="w-full px-4 py-3.5 md:px-5 md:py-4 rounded-xl bg-white/80 dark:bg-[#020611]/80 border border-gray-200 dark:border-blue-500/30 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all duration-300 font-medium text-sm md:text-base dark:text-white hover:border-blue-300 dark:hover:border-blue-400/50 shadow-inner" placeholder="John Doe">
+                                </div>
+                                <div class="group">
+                                    <label class="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 md:mb-2 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400 transition-colors">Phone Number</label> 
+                                    <input type="tel" id="contact-phone" required class="w-full px-4 py-3.5 md:px-5 md:py-4 rounded-xl bg-white/80 dark:bg-[#020611]/80 border border-gray-200 dark:border-blue-500/30 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all duration-300 font-medium text-sm md:text-base dark:text-white hover:border-blue-300 dark:hover:border-blue-400/50 shadow-inner" placeholder="07x xxx xxxx">
+                                </div>
+                            </div>
+                            <div class="mb-4 md:mb-6 group">
+                                <label class="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 md:mb-2 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400 transition-colors">Package / Subject</label> 
+                                <input id="subject-field" required class="w-full px-4 py-3.5 md:px-5 md:py-4 rounded-xl bg-white/80 dark:bg-[#020611]/80 border border-gray-200 dark:border-blue-500/30 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all duration-300 font-medium text-sm md:text-base dark:text-white hover:border-blue-300 dark:hover:border-blue-400/50 shadow-inner" placeholder="E.g., Starter Package">
+                            </div>
+                            <div class="mb-6 md:mb-8 group">
+                                <label class="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 md:mb-2 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400 transition-colors">Message Details</label> 
+                                <textarea id="contact-message" rows="4" required class="w-full px-4 py-3.5 md:px-5 md:py-4 rounded-xl bg-white/80 dark:bg-[#020611]/80 border border-gray-200 dark:border-blue-500/30 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all duration-300 font-medium text-sm md:text-base dark:text-white hover:border-blue-300 dark:hover:border-blue-400/50 shadow-inner" placeholder="Tell me about your project needs..."></textarea>
+                            </div>
+                            <button type="submit" class="group w-full py-3.5 md:py-4 bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-600 dark:to-cyan-500 hover:from-blue-700 hover:to-violet-700 text-white rounded-xl font-black text-base md:text-lg shadow-xl shadow-blue-500/30 dark:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-blue-500/50 active:scale-95 flex items-center justify-center gap-2 border border-transparent dark:border-blue-400/30">
+                                <i data-lucide="send" class="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i> Generate Invoice & Send
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="main-footer" class="nav-glass border-t border-gray-200 dark:border-blue-900/40 py-3 md:py-6 mt-auto relative z-10 reveal-up">
+        <div class="container mx-auto px-3 md:px-8">
+            <div class="grid grid-cols-4 gap-2 md:gap-8 mb-3 md:mb-6 text-left items-start">
+                <div class="flex flex-col items-start p-1">
+                    <div class="flex items-center gap-1.5 md:gap-3 mb-1.5 group cursor-pointer" onclick='switchPage("home")'>
+                        <img src="image_612480.png" onerror='this.onerror=null,this.src="https://ui-avatars.com/api/?name=PD&background=3b82f6&color=fff"' class="w-6 h-6 md:w-12 md:h-12 object-cover bg-white dark:bg-black/50 rounded-md md:rounded-xl shadow-md border border-gray-200 dark:border-blue-500/30 animate-heartbeat" alt="Logo" loading="lazy">
+                        <h2 class="text-[10px] md:text-xl font-black text-blue-600 dark:text-blue-400 tracking-tight group-hover:text-violet-500 transition-colors">.Design</h2>
+                    </div>
+                    <p class="text-[7px] md:text-xs text-gray-500 dark:text-blue-200/50 font-bold uppercase tracking-wider mb-2 md:mb-4 truncate w-full">Graphics Store</p>
+                    <div class="flex gap-1.5 md:gap-3 relative z-50">
+                        <!-- Instagram icon fix kora hoyeche jeno thik bhabe click hoy -->
+                        <a href="mailto:piyumalbherath@gmail.com" class="w-5 h-5 md:w-8 md:h-8 rounded-full border border-gray-200 dark:border-blue-500/30 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-red-600/20 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110 shadow-sm relative z-50">
+                            <i data-lucide="mail" class="w-2.5 h-2.5 md:w-4 md:h-4 pointer-events-none"></i>
+                        </a>
+                        <a href="https://instagram.com/piyumalbherath" target="_blank" rel="noopener noreferrer" class="w-5 h-5 md:w-8 md:h-8 rounded-full border border-gray-200 dark:border-blue-500/30 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-pink-50 dark:hover:bg-pink-600/20 hover:text-pink-600 dark:hover:text-pink-400 transition-all duration-300 hover:scale-110 shadow-sm relative z-50">
+                            <i data-lucide="instagram" class="w-2.5 h-2.5 md:w-4 md:h-4 pointer-events-none"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start">
+                    <h3 class="text-[8px] md:text-sm font-bold text-blue-600 dark:text-blue-400 mb-1.5 md:mb-4 bg-blue-50 dark:bg-blue-900/30 px-1.5 md:px-3 py-0.5 md:py-1 rounded whitespace-nowrap border border-transparent dark:border-blue-500/20">Useful Links</h3>
+                    <ul class="space-y-1 md:space-y-3 font-semibold text-gray-600 dark:text-gray-300 text-[8px] md:text-sm">
+                        <li><button onclick='switchPage("home")' class="hover:text-blue-600 dark:hover:text-blue-400 hover:translate-x-1 transition-all inline-block">Home</button></li>
+                        <li><button onclick='switchPage("store")' class="hover:text-blue-600 dark:hover:text-blue-400 hover:translate-x-1 transition-all inline-block">View Store</button></li>
+                        <li><a href="https://policies.google.com/privacy" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 hover:translate-x-1 transition-all inline-block">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-start">
+                    <h3 class="text-[8px] md:text-sm font-bold text-blue-600 dark:text-blue-400 mb-1.5 md:mb-4 bg-blue-50 dark:bg-blue-900/30 px-1.5 md:px-3 py-0.5 md:py-1 rounded whitespace-nowrap border border-transparent dark:border-blue-500/20">Explore</h3>
+                    <ul class="space-y-1 md:space-y-3 font-semibold text-gray-600 dark:text-gray-300 text-[8px] md:text-sm">
+                        <li><button onclick='switchPage("services")' class="hover:text-blue-600 dark:hover:text-blue-400 hover:translate-x-1 transition-all inline-block">Services</button></li>
+                        <li><button onclick='switchPage("portfolio")' class="hover:text-blue-600 dark:hover:text-blue-400 hover:translate-x-1 transition-all inline-block">Portfolio</button></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-start w-full p-1">
+                    <h3 class="text-[8px] md:text-sm font-bold text-blue-600 dark:text-blue-400 mb-1.5 md:mb-4 bg-blue-50 dark:bg-blue-900/30 px-1.5 md:px-3 py-0.5 md:py-1 rounded whitespace-nowrap border border-transparent dark:border-blue-500/20">Contact</h3>
+                    <ul class="space-y-1 md:space-y-3 font-semibold text-gray-600 dark:text-gray-300 text-[7px] md:text-sm w-full">
+                        <li class="truncate"><a href="tel:0704227925" class="hover:text-blue-600 dark:hover:text-blue-400 hover:translate-x-1 transition-all inline-block">070 422 7925</a></li>
+                        <li class="truncate"><a href="mailto:piyumalbherath@gmail.com" class="hover:text-blue-600 dark:hover:text-blue-400 hover:translate-x-1 transition-all inline-block">piyumalbherath@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex items-center justify-center py-2 md:py-6 border-t border-gray-200 dark:border-blue-900/30">
+                <div class="flex items-center gap-1.5 text-green-600 dark:text-green-400 px-3 md:px-6 py-1.5 md:py-3 rounded-full font-bold secure-badge-anim text-[8px] md:text-sm hover:scale-105 transition-transform cursor-default">
+                    <i data-lucide="shield-check" class="w-3 h-3 md:w-5 md:h-5"></i> 100% Secure & Verified By P.Design
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-blue-900/30 pt-2 md:pt-6 flex justify-between items-center gap-2 text-[6px] md:text-sm font-bold text-blue-600 dark:text-blue-400">
+                <div class="bg-blue-50 dark:bg-[#020611] px-2 md:px-4 py-1 md:py-2 rounded whitespace-nowrap truncate border border-transparent dark:border-blue-500/20">Copyright © 2026 All Rights Reserved</div>
+                <div class="flex justify-center gap-1.5 md:gap-4 bg-blue-50 dark:bg-[#020611] px-2 md:px-4 py-1 md:py-2 rounded whitespace-nowrap border border-transparent dark:border-blue-500/20">
+                    <a href="https://policies.google.com/terms" target="_blank" class="hover:text-blue-800 dark:hover:text-blue-300 transition-colors">Terms of service</a> <span class="text-gray-300 dark:text-blue-800">|</span> 
+                    <a href="https://policies.google.com/privacy" target="_blank" class="hover:text-blue-800 dark:hover:text-blue-300 transition-colors">Privacy policy</a> <span class="text-gray-300 dark:text-blue-800">|</span> 
+                    <a href="https://stripe.com/legal/refund" target="_blank" class="hover:text-blue-800 dark:hover:text-blue-300 transition-colors">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/94704227925" target="_blank" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] group flex items-center gap-3">
+        <div class="hidden md:block bg-green-500 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 whitespace-nowrap border border-green-400">Click now to chat/order!</div>
+        <div class="w-12 h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform animate-bounce-slow border-[3px] md:border-4 border-white dark:border-[#020611] badge-glow group-hover:shadow-green-500/50">
+            <i data-lucide="message-circle" class="w-6 h-6 md:w-7 md:h-7 group-hover:animate-pulse"></i>
+        </div>
+    </a>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-gray-900/50 dark:bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+        <div class="glass-panel p-8 rounded-[2rem] text-center transform scale-90 transition-transform duration-300 w-[90%] max-w-sm border-white dark:border-blue-500/30 bg-white/90 dark:bg-[#040a14]/95 shadow-2xl will-change-transform">
+            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/40 relative">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-black text-gray-900 dark:text-white mb-2">Order Processed!</h3>
+            <p class="text-sm font-medium text-gray-600 dark:text-blue-100/70 mb-6 leading-relaxed">Your professional invoice has been generated and sent via WhatsApp.</p>
+            <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-600 dark:to-cyan-500 hover:from-blue-700 hover:to-violet-700 text-white rounded-xl font-bold transition-all shadow-md active:scale-95 border border-transparent dark:border-blue-400/30">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        // Security bindings 
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.addEventListener("keydown", e => {
+            if ("F12" === e.key || (e.ctrlKey && "u" === e.key) || (e.ctrlKey && e.shiftKey && ("I" === e.key || "J" === e.key))) {
+                return e.preventDefault(), !1;
+            }
+        });
+
+        // Intersection Observer performance improve kora hoyeche
+        const observerOptions = { root: null, rootMargin: "0px", threshold: .15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                }
+            });
+        }, observerOptions);
+
+        function initAnimations() {
+            const elements = document.querySelectorAll(".reveal-up, .reveal-from-left, .reveal-from-right, .reveal-scale");
+            elements.forEach(el => {
+                el.classList.remove("is-visible");
+                observer.observe(el);
+            });
+        }
+
+        // Counter function
+        function animateCounters() {
+            const counters = document.querySelectorAll(".count-up");
+            counters.forEach(counter => {
+                counter.innerText = "0";
+                const target = +counter.getAttribute("data-target");
+                const duration = 2000;
+                let startTime = null;
+                
+                const updateCounter = (timestamp) => {
+                    startTime = startTime || timestamp;
+                    let progress = Math.min((timestamp - startTime) / duration, 1);
+                    progress = 1 - Math.pow(1 - progress, 4); 
+                    let currentValue = Math.floor(progress * target);
+                    counter.innerText = currentValue;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                setTimeout(() => window.requestAnimationFrame(updateCounter), 400);
+            });
+        }
+
+        // Page Switcher
+        function switchPage(targetPageId) {
+            document.querySelectorAll(".page-section").forEach(section => {
+                section.style.opacity = "0";
+                section.style.transform = "scale3d(0.98, 0.98, 1) translate3d(0, 20px, 0)";
+                setTimeout(() => { section.classList.remove("active"); }, 500);
+            });
+
+            document.querySelectorAll(".nav-btn").forEach(btn => {
+                if (btn.dataset.target === targetPageId) {
+                    btn.classList.add("text-blue-600", "dark:text-blue-400", "bg-white", "dark:bg-blue-900/40", "shadow-sm", "scale-105");
+                    btn.classList.remove("text-gray-600", "dark:text-gray-300", "hover:bg-white/50", "dark:hover:bg-blue-900/40", "hover:scale-105");
+                } else {
+                    btn.classList.remove("text-blue-600", "dark:text-blue-400", "bg-white", "dark:bg-blue-900/40", "shadow-sm", "scale-105");
+                    btn.classList.add("text-gray-600", "dark:text-gray-300", "hover:bg-white/50", "dark:hover:bg-blue-900/40", "hover:scale-105");
+                }
+            });
+
+            document.querySelectorAll(".mobile-nav-btn").forEach(btn => {
+                if (btn.dataset.target === targetPageId) {
+                    btn.classList.add("bg-blue-600", "dark:bg-blue-500", "text-white", "shadow-md");
+                    btn.classList.remove("bg-transparent", "text-gray-600", "dark:text-gray-300");
+                } else {
+                    btn.classList.remove("bg-blue-600", "dark:bg-blue-500", "text-white", "shadow-md");
+                    btn.classList.add("bg-transparent", "text-gray-600", "dark:text-gray-300");
+                }
+            });
+
+            setTimeout(() => {
+                const activeSection = document.getElementById(targetPageId);
+                activeSection.classList.add("active");
+                activeSection.offsetWidth; 
+                activeSection.style.opacity = "1";
+                activeSection.style.transform = "scale3d(1, 1, 1) translate3d(0, 0, 0)";
+                initAnimations();
+                if (targetPageId === "home") animateCounters();
+            }, 500);
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // Plan Selection
+        function selectPackage(packageName) {
+            switchPage("contact");
+            setTimeout(() => {
+                const subjectField = document.getElementById("subject-field");
+                subjectField.value = "Order: " + packageName + " Package";
+                subjectField.focus();
+                subjectField.classList.add("ring-4", "ring-blue-500/50", "border-blue-500");
+                setTimeout(() => subjectField.classList.remove("ring-4", "ring-blue-500/50", "border-blue-500"), 1500);
+            }, 600);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        }
+
+        // WhatsApp Sender
+        const currentWhatsAppNo = "94704227925";
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById("contact-name").value;
+            const phone = document.getElementById("contact-phone").value;
+            const subject = document.getElementById("subject-field").value;
+            const message = document.getElementById("contact-message").value;
+            
+            let text = "================================\n";
+            text += "      INVOICE / ORDER DETAILS     \n";
+            text += "================================\n\n";
+            text += `Order ID    : #ORD-${Math.floor(1000 + 9000 * Math.random())}\n`;
+            text += `Date        : ${(new Date()).toLocaleDateString()}\n`;
+            text += "--------------------------------\n";
+            text += `Client Name : ${name}\n`;
+            text += `Contact No  : ${phone}\n`;
+            text += `Package     : ${subject}\n`;
+            text += "--------------------------------\n";
+            text += `Requirements:\n${message}\n\n`;
+            text += "================================\n";
+            text += "Thank you for choosing P.Design.\n";
+            text += "================================";
+            
+            const encodedText = encodeURIComponent(text);
+            const url = `https://wa.me/${currentWhatsAppNo}?text=${encodedText}`;
+            window.open(url, "_blank");
+            e.target.reset();
+            
+            const modal = document.getElementById("success-modal");
+            const panel = modal.querySelector(".glass-panel");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            modal.offsetWidth; 
+            modal.classList.remove("opacity-0");
+            panel.classList.remove("scale-90");
+            panel.classList.add("scale-100");
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById("success-modal");
+            const panel = modal.querySelector(".glass-panel");
+            modal.classList.add("opacity-0");
+            panel.classList.remove("scale-100");
+            panel.classList.add("scale-90");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            }, 300);
+        }
+
+        // Initialization Optimize kora hoyeche (Strictly Light Mode enforced)
+        document.addEventListener("DOMContentLoaded", () => {
+            // Hardcode enforcement of light mode
+            document.documentElement.classList.remove("dark");
+            localStorage.theme = "light";
+            
+            // Lucide icons create kore
+            lucide.createIcons();
+
+            const homeSection = document.getElementById("home");
+            homeSection.classList.add("active");
+            homeSection.style.opacity = "1";
+            homeSection.style.transform = "scale3d(1, 1, 1) translate3d(0, 0, 0)";
+            
+            document.querySelectorAll(".mobile-nav-btn").forEach(btn => {
+                if (btn.dataset.target === "home") {
+                    btn.classList.add("bg-blue-600", "dark:bg-blue-500", "text-white", "shadow-md");
+                    btn.classList.remove("bg-transparent", "text-gray-600", "dark:text-gray-300");
+                }
+            });
+
+            setTimeout(() => {
+                const video = document.getElementById("hero-bg-video");
+                if (video) video.load();
+            }, 100);
+
+            setTimeout(() => {
+                initAnimations();
+                animateCounters();
+            }, 100);
+        });
+    </script>
 </body>
 </html>
